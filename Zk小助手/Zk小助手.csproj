@@ -7,8 +7,8 @@
     <ProjectGuid>{6B488C87-2CB4-4A9B-8402-1E0A686BC4F5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zk小助手</RootNamespace>
-    <AssemblyName>Zk小助手</AssemblyName>
+    <RootNamespace>ZkManager</RootNamespace>
+    <AssemblyName>ZkManager</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

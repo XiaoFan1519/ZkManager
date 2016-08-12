@@ -1,4 +1,4 @@
-﻿namespace Zk小助手
+﻿namespace ZkManager
 {
     partial class Form1
     {

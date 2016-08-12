@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Zk小助手
+namespace ZkManager
 {
     public partial class Form1 : Form
     {

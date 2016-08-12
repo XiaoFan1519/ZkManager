@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Zk小助手
+namespace ZkManager
 {
     static class Program
     {
