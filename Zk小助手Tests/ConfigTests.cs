@@ -101,9 +101,22 @@ namespace ZkManager.Tests
         }
 
         [TestMethod()]
+        public void CountTest()
+        {
+            if (configs.Count != 3)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod()]
         public void clearTest()
         {
-            
+            configs.Clear();
+            if (configs.Count != 0)
+            {
+                Assert.Fail();
+            }
         }
     }
 }
