@@ -66,7 +66,7 @@ namespace ZkManager
         /// 读取配置文件，并保存到内存中
         /// </summary>
         /// <param name="path">文件路径</param>
-        public void load(string path)
+        public void Load(string path)
         {
             StreamReader sr = new StreamReader(path);
             string line = null;
@@ -91,7 +91,7 @@ namespace ZkManager
         /// 将内存中的配置项保存到文件中，已覆盖的形式保存
         /// </summary>
         /// <param name="path">文件路径</param>
-        public void save(string path)
+        public void Save(string path)
         {
             StreamWriter sw = new StreamWriter(path, false);
 
@@ -107,7 +107,7 @@ namespace ZkManager
         /// <summary>
         /// 移除内存中的所有配置项
         /// </summary>
-        public void clear()
+        public void Clear()
         {
             configs.Clear();
         }

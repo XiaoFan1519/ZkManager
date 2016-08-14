@@ -56,7 +56,7 @@ namespace ZkManager.Tests
         [TestMethod()]
         public void loadTest()
         {
-            configs.load("test.cfg");
+            configs.Load("test.cfg");
 
             string value = configs["111"];
 
@@ -70,10 +70,10 @@ namespace ZkManager.Tests
         public void saveTest()
         {
             configs["saveTest"] = "Test";
-            configs.save("test.cfg");
+            configs.Save("test.cfg");
 
             // 检测保存后的文件是否可以正确读写
-            configs.load("test.cfg");
+            configs.Load("test.cfg");
             string value = configs["saveTest"];
             if (value != "Test")
             {
@@ -81,7 +81,7 @@ namespace ZkManager.Tests
             }
 
             File.Delete("test.cfg");
-            configs.save("test.cfg");
+            configs.Save("test.cfg");
         }
 
         [TestMethod()]
