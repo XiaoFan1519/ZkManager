@@ -43,7 +43,6 @@ namespace ZkManager.Tests
         public void AddTest()
         {
             configs["4"] = "DDD";
-            Console.WriteLine(this.GetHashCode());
         }
 
         [TestMethod()]
@@ -52,17 +51,6 @@ namespace ZkManager.Tests
             bool ret = configs.Remove("1");
             if (!ret)
                 Assert.Fail();
-
-            Console.WriteLine(this.GetHashCode());
-        }
-
-        [TestMethod()]
-        public void ContainsTest()
-        {
-            if (!configs.Contains("1"))
-            {
-                Assert.Fail();
-            }
         }
 
         [TestMethod()]
@@ -84,6 +72,7 @@ namespace ZkManager.Tests
             configs["saveTest"] = "Test";
             configs.save("test.cfg");
 
+            // 检测保存后的文件是否可以正确读写
             configs.load("test.cfg");
             string value = configs["saveTest"];
             if (value != "Test")
@@ -109,6 +98,12 @@ namespace ZkManager.Tests
             {
                 Assert.Fail();
             }
+        }
+
+        [TestMethod()]
+        public void clearTest()
+        {
+            
         }
     }
 }

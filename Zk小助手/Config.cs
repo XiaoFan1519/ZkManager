@@ -6,16 +6,29 @@ using System.Text;
 
 namespace ZkManager
 {
+    /// <summary>
+    /// 操作cfg配置文件
+    /// </summary>
     public class Config
     {
         private IDictionary<string, string> configs = 
             new Dictionary<string, string>();
 
+        /// <summary>
+        /// 删除指定名称的配置项
+        /// </summary>
+        /// <param name="key">配置项名称</param>
+        /// <returns></returns>
         public bool Remove(string key)
         {
             return configs.Remove(key);
         }
 
+        /// <summary>
+        /// 获取、新增和保存指定配置项
+        /// </summary>
+        /// <param name="key">配置项名称</param>
+        /// <returns></returns>
         public string this[string key]
         {
             get
@@ -39,7 +52,12 @@ namespace ZkManager
             }
         }
 
-        public bool Contains(string key)
+        /// <summary>
+        /// 检查指定名称的配置项是否已经存在
+        /// </summary>
+        /// <param name="key">配置项名称</param>
+        /// <returns></returns>
+        private bool Contains(string key)
         {
             return configs.ContainsKey(key);
         }
@@ -69,6 +87,10 @@ namespace ZkManager
             sr.Close();
         }
 
+        /// <summary>
+        /// 将内存中的配置项保存到文件中，已覆盖的形式保存
+        /// </summary>
+        /// <param name="path">文件路径</param>
         public void save(string path)
         {
             StreamWriter sw = new StreamWriter(path, false);
@@ -80,6 +102,25 @@ namespace ZkManager
             }
 
             sw.Close();
+        }
+
+        /// <summary>
+        /// 移除内存中的所有配置项
+        /// </summary>
+        public void clear()
+        {
+            configs.Clear();
+        }
+
+        /// <summary>
+        /// 返回内存中配置项的数量
+        /// </summary>
+        public int Count
+        {
+            get
+            {
+                return configs.Count;
+            }
         }
     }
 }
