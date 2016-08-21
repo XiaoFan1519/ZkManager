@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ConfigTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZkClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zk小助手\Zk小助手.csproj">

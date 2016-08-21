@@ -6,7 +6,7 @@ using ZooKeeperNet;
 
 namespace ZkManager
 {
-    class ZkClient
+    public class ZkClient
     {
         private ZooKeeper zk;
 
