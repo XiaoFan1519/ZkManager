@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ZkManager.constant;
 
 namespace ZkManager
 {
@@ -15,8 +16,22 @@ namespace ZkManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Form1());
-            Application.Run(new Login());
+
+            Config config = new Config();
+            config.Load(Constant.ZK_CFG);
+
+            try
+            {
+                Application.Run(new Login());
+            }
+            catch(Exception e)
+            {
+
+            }
+            finally
+            {
+                config.Save(Constant.ZK_CFG);
+            }
         }
     }
 }

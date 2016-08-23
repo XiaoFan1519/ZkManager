@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="constant\Constant .cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
