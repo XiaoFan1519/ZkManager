@@ -13,8 +13,7 @@ namespace ZkManager
     {
         public Login()
         {
-            // this.AutoScaleMode = AutoScaleMode.Font;
-            this.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel, ((byte)(134)));
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
         }
 
