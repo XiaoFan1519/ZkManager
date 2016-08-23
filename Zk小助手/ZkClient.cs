@@ -23,10 +23,36 @@ namespace ZkManager
             }
         }
 
-        public ZkClient(string connectString, int sessionTimeout)
+        /// <summary>
+        /// 同步的构造方法，
+        /// 只有等收到连接成功的通知，
+        /// 或者超时才会返回。
+        /// 当选择异步时，IsConected 属性失效。
+        /// </summary>
+        /// <param name="connectString">要链接的ip字符串</param>
+        /// <param name="sessionTimeout">超时时间</param>
+        /// <param name="sync">同步，还是异步(同步需要等待连接结果)</param>
+        public ZkClient(string connectString, int sessionTimeout, bool sync = true)
+        {
+            if (sync)
+            {
+                syncConnectZk(connectString, sessionTimeout);
+            }
+            else
+            {
+                asyncConnectZk(connectString, sessionTimeout);
+            }
+        }
+
+        /// <summary>
+        /// 同步连接zk
+        /// </summary>
+        /// <param name="connectString">要链接的ip字符串</param>
+        /// <param name="sessionTimeout">超时时间</param>
+        private void syncConnectZk(string connectString, int sessionTimeout)
         {
             CountdownEvent countDownEvent = new CountdownEvent(1);
-            zk = new ZooKeeper(connectString, 
+            zk = new ZooKeeper(connectString,
                 new TimeSpan(0, 0, 0, 0, sessionTimeout),
                 new ZkConnectWatch(countDownEvent));
             // 这里并没有连接到zk，所以对zk进行了一层封装，保证构造方法执行完就能知道zk是否连接成功
@@ -34,6 +60,17 @@ namespace ZkManager
             {
                 isConnected = true;
             }
+        }
+
+        /// <summary>
+        /// 异步连接zk
+        /// </summary>
+        /// <param name="connectString">要链接的ip字符串</param>
+        /// <param name="sessionTimeout">超时时间</param>
+        private void asyncConnectZk(string connectString, int sessionTimeout)
+        {
+            zk = new ZooKeeper(connectString,
+                new TimeSpan(0, 0, 0, 0, sessionTimeout), null);
         }
 
         /// <summary>
@@ -80,6 +117,20 @@ namespace ZkManager
         public void delete(string path)
         {
             zk.Delete(path, -1);
+        }
+
+        /// <summary>
+        /// 关闭与zk的连接
+        /// </summary>
+        public void close()
+        {
+            // C#的zookeerper退出时候，
+            // 会超时等待才返回，这里使用线程解决等待的问题。
+            if (null != zk)
+                new Thread(() =>
+                {
+                    zk.Dispose();
+                });
         }
     }
 
