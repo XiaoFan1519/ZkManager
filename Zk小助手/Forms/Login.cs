@@ -16,6 +16,7 @@ namespace ZkManager
         /// 日志类
         /// </summary>
         private static readonly ILog log = LogManager.GetLogger(typeof(Login));
+
         /// <summary>
         /// 本地配置项类
         /// </summary>

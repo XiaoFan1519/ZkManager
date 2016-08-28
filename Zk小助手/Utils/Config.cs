@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,12 +7,19 @@ using System.Text;
 
 namespace ZkManager
 {
+
+
     /// <summary>
     /// 操作cfg配置文件
     /// </summary>
     public class Config
     {
-        private IDictionary<string, string> configs = 
+        /// <summary>
+        /// 日志类
+        /// </summary>
+        private static readonly ILog log = LogManager.GetLogger(typeof(Config));
+
+        private IDictionary<string, string> configs =
             new Dictionary<string, string>();
 
         /// <summary>

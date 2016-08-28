@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -8,6 +9,14 @@ namespace ZkManager
 {
     public class ZkClient
     {
+        /// <summary>
+        /// 日志类
+        /// </summary>
+        private static readonly ILog log = LogManager.GetLogger(typeof(ZkClient));
+
+        /// <summary>
+        /// zk变量
+        /// </summary>
         private ZooKeeper zk;
 
         /// <summary>
