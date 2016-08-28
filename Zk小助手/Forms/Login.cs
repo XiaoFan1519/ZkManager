@@ -29,10 +29,10 @@ namespace ZkManager
 
         private void Login_Load(object sender, EventArgs e)
         {
-            // 将配置项显示到列表框中
             foreach (string key in config.GetKets())
             {
                 ListBox_IpList.Items.Add(key);
+                log.Debug(key, new Exception("aaa"));
             }
             
         }
