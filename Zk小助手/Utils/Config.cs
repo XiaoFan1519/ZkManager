@@ -68,7 +68,8 @@ namespace ZkManager
         /// <param name="path">文件路径</param>
         public void Load(string path)
         {
-            StreamReader sr = new StreamReader(path);
+            FileStream stream = File.Exists(path) ? File.OpenRead(path) : File.Create(path);
+            StreamReader sr = new StreamReader(stream);
             string line = null;
             while ((line = sr.ReadLine()) != null)
             {
@@ -121,6 +122,15 @@ namespace ZkManager
             {
                 return configs.Count;
             }
+        }
+
+        /// <summary>
+        /// 返回所有配置项的key值
+        /// </summary>
+        /// <returns></returns>
+        public ICollection<string> GetKets()
+        {
+            return configs.Keys;
         }
     }
 }

@@ -19,10 +19,10 @@ namespace ZkManager
 
             Config config = new Config();
             config.Load(Constant.ZK_CFG);
-
+            Login loginFrm = new Login(config);
             try
             {
-                Application.Run(new Login());
+                Application.Run(loginFrm);
             }
             catch(Exception e)
             {

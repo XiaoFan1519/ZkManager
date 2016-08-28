@@ -11,15 +11,24 @@ namespace ZkManager
 {
     public partial class Login : Form
     {
-        public Login()
+        /// <summary>
+        /// 本地配置项类
+        /// </summary>
+        private Config config;
+        public Login(Config config)
         {
             this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
+            this.config = config;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            foreach (string key in config.GetKets())
+            {
+                ListBox_IpList.Items.Add(key);
+            }
+            
         }
     }
 }
