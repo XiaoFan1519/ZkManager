@@ -56,6 +56,7 @@
             this.Button_Add.TabIndex = 1;
             this.Button_Add.Text = "新增";
             this.Button_Add.UseVisualStyleBackColor = true;
+            this.Button_Add.Click += new System.EventHandler(this.Button_Add_Click);
             // 
             // Button_Edit
             // 

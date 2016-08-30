@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ZkManager.Forms;
 
 namespace ZkManager
 {
@@ -36,6 +37,11 @@ namespace ZkManager
                 log.Debug(key, new Exception("aaa"));
             }
             
+        }
+
+        private void Button_Add_Click(object sender, EventArgs e)
+        {
+            new Edit().ShowDialog();
         }
     }
 }
