@@ -49,5 +49,26 @@ namespace ZkManager
                 ListBox_IpList.Items.Add(editForm.name);
             }
         }
+
+        private void Button_Edit_Click(object sender, EventArgs e)
+        {
+            // 获取当前选中项
+            int index = ListBox_IpList.SelectedIndex;
+
+            if (-1 == index)
+                return;
+
+            string name = ListBox_IpList.Items[index].ToString();
+            string value = config[name];
+            Edit editForm = new Edit(name, value, config);
+
+            DialogResult result = editForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                ListBox_IpList.Items.Remove(name);
+                ListBox_IpList.Items.Add(editForm.name);
+            }
+        }
     }
 }

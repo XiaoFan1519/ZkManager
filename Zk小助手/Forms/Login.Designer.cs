@@ -67,6 +67,7 @@
             this.Button_Edit.TabIndex = 2;
             this.Button_Edit.Text = "编辑";
             this.Button_Edit.UseVisualStyleBackColor = true;
+            this.Button_Edit.Click += new System.EventHandler(this.Button_Edit_Click);
             // 
             // Button_Delete
             // 

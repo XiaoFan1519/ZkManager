@@ -62,13 +62,17 @@ namespace ZkManager.Forms
                 return;
             }
 
-            name = textBox_Name.Text;
             ip = textBox_Ip.Text;
 
             if (isAdd)
+            {
+                name = textBox_Name.Text;
                 doAdd();
+            }
             else
+            {
                 doEdit();
+            }
         }
 
         private void Edit_Shown(object sender, EventArgs e)
@@ -101,7 +105,18 @@ namespace ZkManager.Forms
         /// </summary>
         private void doEdit()
         {
+            string newName = textBox_Name.Text;
+            string value = config[newName];
+            if (null != value && newName != this.name)
+            {
+                MessageBox.Show("该名称已存在！");
+                return;
+            }
 
+            config.Remove(name);
+            config[newName] = ip;
+            this.name = newName;
+            this.DialogResult = DialogResult.OK;
         }
 
         private void button_Cancle_Click(object sender, EventArgs e)
