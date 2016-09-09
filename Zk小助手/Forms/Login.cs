@@ -41,9 +41,13 @@ namespace ZkManager
 
         private void Button_Add_Click(object sender, EventArgs e)
         {
-            Edit editForm = new Edit();
+            Edit editForm = new Edit(config);
             DialogResult result = editForm.ShowDialog();
 
+            if (result == DialogResult.OK)
+            {
+                ListBox_IpList.Items.Add(editForm.name);
+            }
         }
     }
 }
