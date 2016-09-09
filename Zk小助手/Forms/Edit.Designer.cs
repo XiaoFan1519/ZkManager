@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_Name = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_Ip = new System.Windows.Forms.TextBox();
             this.button_OK = new System.Windows.Forms.Button();
             this.button_Cancle = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -61,12 +61,12 @@
             this.textBox_Name.Size = new System.Drawing.Size(150, 25);
             this.textBox_Name.TabIndex = 2;
             // 
-            // textBox1
+            // textBox_Ip
             // 
-            this.textBox1.Location = new System.Drawing.Point(93, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 25);
-            this.textBox1.TabIndex = 3;
+            this.textBox_Ip.Location = new System.Drawing.Point(93, 37);
+            this.textBox_Ip.Name = "textBox_Ip";
+            this.textBox_Ip.Size = new System.Drawing.Size(150, 25);
+            this.textBox_Ip.TabIndex = 3;
             // 
             // button_OK
             // 
@@ -76,6 +76,7 @@
             this.button_OK.TabIndex = 4;
             this.button_OK.Text = "确定";
             this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
             // 
             // button_Cancle
             // 
@@ -96,7 +97,7 @@
             this.ClientSize = new System.Drawing.Size(257, 102);
             this.Controls.Add(this.button_Cancle);
             this.Controls.Add(this.button_OK);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_Ip);
             this.Controls.Add(this.textBox_Name);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -106,6 +107,7 @@
             this.Name = "Edit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit";
+            this.Shown += new System.EventHandler(this.Edit_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +118,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_Name;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Ip;
         private System.Windows.Forms.Button button_OK;
         private System.Windows.Forms.Button button_Cancle;
     }

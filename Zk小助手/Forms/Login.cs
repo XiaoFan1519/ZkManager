@@ -41,7 +41,9 @@ namespace ZkManager
 
         private void Button_Add_Click(object sender, EventArgs e)
         {
-            new Edit().ShowDialog();
+            Edit editForm = new Edit();
+            DialogResult result = editForm.ShowDialog();
+
         }
     }
 }
