@@ -70,5 +70,10 @@ namespace ZkManager
                 ListBox_IpList.Items.Add(editForm.name);
             }
         }
+
+        private void Button_Delete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
