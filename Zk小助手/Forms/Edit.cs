@@ -32,11 +32,6 @@ namespace ZkManager.Forms
         private Config config;
 
         /// <summary>
-        /// 窗口返回结果
-        /// </summary>
-        private DialogResult result;
-
-        /// <summary>
         /// 新增模式的构造方法
         /// </summary>
         public Edit(Config config)

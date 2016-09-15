@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace ZkManager
 {
     static class Program
     {
+        /// <summary>
+        /// 日志类
+        /// </summary>
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -27,7 +33,7 @@ namespace ZkManager
             }
             catch(Exception e)
             {
-
+                log.Error(e.Message, e);
             }
             finally
             {
