@@ -73,7 +73,28 @@ namespace ZkManager
 
         private void Button_Delete_Click(object sender, EventArgs e)
         {
+            int index = ListBox_IpList.SelectedIndex;
+            // 没有选择东西则返回
+            if (-1 == index)
+            {
+                return;
+            }
 
+            string value = (string)ListBox_IpList.Items[index];
+
+            // 删除配置项
+            config.Remove(value);
+            ListBox_IpList.Items.RemoveAt(index);
+
+            index--;
+
+            // 范围判断
+            if (index <= -1 || index >= ListBox_IpList.Items.Count)
+            {
+                return;
+            }
+
+            ListBox_IpList.SelectedIndex = index;
         }
     }
 }
