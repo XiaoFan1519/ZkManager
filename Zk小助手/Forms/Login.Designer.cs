@@ -94,6 +94,7 @@
             this.Button_Login.TabIndex = 4;
             this.Button_Login.Text = "进入";
             this.Button_Login.UseVisualStyleBackColor = true;
+            this.Button_Login.Click += new System.EventHandler(this.Button_Login_Click);
             // 
             // Login
             // 

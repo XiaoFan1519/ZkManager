@@ -96,5 +96,27 @@ namespace ZkManager
 
             ListBox_IpList.SelectedIndex = index;
         }
+
+        private void Button_Login_Click(object sender, EventArgs e)
+        {
+            int index = ListBox_IpList.SelectedIndex;
+            // 没有选择东西则返回
+            if (-1 == index)
+            {
+                return;
+            }
+
+            string name = (string)ListBox_IpList.Items[index];
+            string value = config[name];
+            ZkClient client = new ZkClient(value, 3000);
+            if (!client.IsConected)
+            {
+                MessageBox.Show("无法连接到指定IP。");
+                return;
+            }
+
+
+        }
+        
     }
 }
