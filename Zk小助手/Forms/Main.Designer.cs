@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("/");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.menuToolStrip = new System.Windows.Forms.ToolStrip();
             this.nodeTree = new System.Windows.Forms.TreeView();
-            this.textBox_NodePath = new System.Windows.Forms.TextBox();
+            this.menuToolStrip = new System.Windows.Forms.ToolStrip();
             this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
+            this.textBox_NodePath = new System.Windows.Forms.TextBox();
+            this.toolStripButton_refresh = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel_reconnect = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel_delete = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.menuToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -58,14 +64,6 @@
             this.splitContainer.SplitterDistance = 224;
             this.splitContainer.TabIndex = 0;
             // 
-            // menuToolStrip
-            // 
-            this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuToolStrip.Name = "menuToolStrip";
-            this.menuToolStrip.Size = new System.Drawing.Size(224, 25);
-            this.menuToolStrip.TabIndex = 2;
-            this.menuToolStrip.Text = "toolStrip1";
-            // 
             // nodeTree
             // 
             this.nodeTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -73,17 +71,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "/";
+            this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
             // 
-            // textBox_NodePath
+            // menuToolStrip
             // 
-            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_NodePath.Location = new System.Drawing.Point(3, 3);
-            this.textBox_NodePath.Name = "textBox_NodePath";
-            this.textBox_NodePath.Size = new System.Drawing.Size(362, 21);
-            this.textBox_NodePath.TabIndex = 0;
+            this.menuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton_refresh,
+            this.toolStripLabel_reconnect,
+            this.toolStripLabel_delete});
+            this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuToolStrip.Name = "menuToolStrip";
+            this.menuToolStrip.Size = new System.Drawing.Size(224, 25);
+            this.menuToolStrip.TabIndex = 2;
+            this.menuToolStrip.Text = "toolStrip1";
             // 
             // richTextBox_NodeValue
             // 
@@ -95,6 +100,36 @@
             this.richTextBox_NodeValue.Size = new System.Drawing.Size(362, 290);
             this.richTextBox_NodeValue.TabIndex = 1;
             this.richTextBox_NodeValue.Text = "";
+            // 
+            // textBox_NodePath
+            // 
+            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_NodePath.Location = new System.Drawing.Point(3, 3);
+            this.textBox_NodePath.Name = "textBox_NodePath";
+            this.textBox_NodePath.Size = new System.Drawing.Size(362, 21);
+            this.textBox_NodePath.TabIndex = 0;
+            // 
+            // toolStripButton_refresh
+            // 
+            this.toolStripButton_refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton_refresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_refresh.Image")));
+            this.toolStripButton_refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_refresh.Name = "toolStripButton_refresh";
+            this.toolStripButton_refresh.Size = new System.Drawing.Size(32, 22);
+            this.toolStripButton_refresh.Text = "刷新";
+            // 
+            // toolStripLabel_reconnect
+            // 
+            this.toolStripLabel_reconnect.Name = "toolStripLabel_reconnect";
+            this.toolStripLabel_reconnect.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel_reconnect.Text = "重新连接";
+            // 
+            // toolStripLabel_delete
+            // 
+            this.toolStripLabel_delete.Name = "toolStripLabel_delete";
+            this.toolStripLabel_delete.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel_delete.Text = "删除";
             // 
             // Main
             // 
@@ -110,6 +145,8 @@
             this.splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.menuToolStrip.ResumeLayout(false);
+            this.menuToolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -121,5 +158,8 @@
         private System.Windows.Forms.TreeView nodeTree;
         private System.Windows.Forms.TextBox textBox_NodePath;
         private System.Windows.Forms.RichTextBox richTextBox_NodeValue;
+        private System.Windows.Forms.ToolStripLabel toolStripButton_refresh;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel_reconnect;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel_delete;
     }
 }
