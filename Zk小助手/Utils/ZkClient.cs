@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using ZooKeeperNet;
@@ -43,14 +44,22 @@ namespace ZkManager
         /// <param name="sync">同步，还是异步(同步需要等待连接结果)</param>
         public ZkClient(string connectString, int sessionTimeout, bool sync = true)
         {
-            if (sync)
+            try
             {
-                syncConnectZk(connectString, sessionTimeout);
+                if (sync)
+                {
+                    syncConnectZk(connectString, sessionTimeout);
+                }
+                else
+                {
+                    asyncConnectZk(connectString, sessionTimeout);
+                }
             }
-            else
+            catch(SocketException)
             {
-                asyncConnectZk(connectString, sessionTimeout);
+                isConnected = false;
             }
+            
         }
 
         /// <summary>

@@ -34,7 +34,6 @@ namespace ZkManager
             foreach (string key in config.GetKets())
             {
                 ListBox_IpList.Items.Add(key);
-                log.Debug(key, new Exception("aaa"));
             }
             
         }
@@ -112,9 +111,9 @@ namespace ZkManager
             if (!client.IsConected)
             {
                 MessageBox.Show("无法连接到指定IP。");
+                client.close();
                 return;
             }
-
 
         }
         
