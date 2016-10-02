@@ -33,11 +33,12 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
             this.menuToolStrip = new System.Windows.Forms.ToolStrip();
-            this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
-            this.textBox_NodePath = new System.Windows.Forms.TextBox();
             this.toolStripButton_refresh = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel_reconnect = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel_delete = new System.Windows.Forms.ToolStripLabel();
+            this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
+            this.textBox_NodePath = new System.Windows.Forms.TextBox();
+            this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.comboBox_Encoding);
             this.splitContainer.Panel2.Controls.Add(this.richTextBox_NodeValue);
             this.splitContainer.Panel2.Controls.Add(this.textBox_NodePath);
             this.splitContainer.Size = new System.Drawing.Size(596, 321);
@@ -90,26 +92,6 @@
             this.menuToolStrip.TabIndex = 2;
             this.menuToolStrip.Text = "toolStrip1";
             // 
-            // richTextBox_NodeValue
-            // 
-            this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_NodeValue.Location = new System.Drawing.Point(3, 28);
-            this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
-            this.richTextBox_NodeValue.Size = new System.Drawing.Size(362, 290);
-            this.richTextBox_NodeValue.TabIndex = 1;
-            this.richTextBox_NodeValue.Text = "";
-            // 
-            // textBox_NodePath
-            // 
-            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_NodePath.Location = new System.Drawing.Point(3, 3);
-            this.textBox_NodePath.Name = "textBox_NodePath";
-            this.textBox_NodePath.Size = new System.Drawing.Size(362, 21);
-            this.textBox_NodePath.TabIndex = 0;
-            // 
             // toolStripButton_refresh
             // 
             this.toolStripButton_refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -130,6 +112,38 @@
             this.toolStripLabel_delete.Name = "toolStripLabel_delete";
             this.toolStripLabel_delete.Size = new System.Drawing.Size(32, 22);
             this.toolStripLabel_delete.Text = "删除";
+            // 
+            // richTextBox_NodeValue
+            // 
+            this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox_NodeValue.Location = new System.Drawing.Point(3, 28);
+            this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
+            this.richTextBox_NodeValue.Size = new System.Drawing.Size(362, 290);
+            this.richTextBox_NodeValue.TabIndex = 1;
+            this.richTextBox_NodeValue.Text = "";
+            // 
+            // textBox_NodePath
+            // 
+            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_NodePath.Location = new System.Drawing.Point(3, 3);
+            this.textBox_NodePath.Name = "textBox_NodePath";
+            this.textBox_NodePath.Size = new System.Drawing.Size(298, 21);
+            this.textBox_NodePath.TabIndex = 0;
+            // 
+            // comboBox_Encoding
+            // 
+            this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_Encoding.FormattingEnabled = true;
+            this.comboBox_Encoding.Items.AddRange(new object[] {
+            "UTF-8"});
+            this.comboBox_Encoding.Location = new System.Drawing.Point(307, 3);
+            this.comboBox_Encoding.Name = "comboBox_Encoding";
+            this.comboBox_Encoding.Size = new System.Drawing.Size(58, 20);
+            this.comboBox_Encoding.TabIndex = 2;
+            this.comboBox_Encoding.Text = "UTF-8";
             // 
             // Main
             // 
@@ -161,5 +175,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripButton_refresh;
         private System.Windows.Forms.ToolStripLabel toolStripLabel_reconnect;
         private System.Windows.Forms.ToolStripLabel toolStripLabel_delete;
+        private System.Windows.Forms.ComboBox comboBox_Encoding;
     }
 }
