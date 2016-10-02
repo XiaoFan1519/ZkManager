@@ -11,8 +11,22 @@ namespace ZkManager.Forms
 {
     public partial class Main : Form
     {
-        public Main()
+        /// <summary>
+        /// zk工具类
+        /// </summary>
+        private ZkClient zkClient;
+
+        /// <summary>
+        /// 本次连接的连接名称
+        /// </summary>
+        private string name;
+
+        public Main(ZkClient client, string name)
         {
+            // 初始化
+            this.zkClient = client;
+            this.name = name;
+
             InitializeComponent();
         }
     }

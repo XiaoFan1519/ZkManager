@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -8,6 +9,9 @@ using ZooKeeperNet;
 
 namespace ZkManager
 {
+    /// <summary>
+    /// zk工具类
+    /// </summary>
     public class ZkClient
     {
         /// <summary>
@@ -55,11 +59,16 @@ namespace ZkManager
                     asyncConnectZk(connectString, sessionTimeout);
                 }
             }
-            catch(SocketException)
+            catch (FileLoadException ex)
             {
+                log.Error("FileLoadException", ex);
                 isConnected = false;
             }
-            
+            catch (SocketException ex)
+            {
+                log.Error("SocketException", ex);
+                isConnected = false;
+            }
         }
 
         /// <summary>
