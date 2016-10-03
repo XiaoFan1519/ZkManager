@@ -29,5 +29,10 @@ namespace ZkManager.Forms
 
             InitializeComponent();
         }
+
+        private void getChildNode(TreeNode root, string path)
+        {
+            List<string> nodes = zkClient.getChildren(path);
+        }
     }
 }

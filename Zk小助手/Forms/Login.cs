@@ -1,13 +1,8 @@
 ﻿using log4net;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using ZkManager.Forms;
+using ZooKeeperNet;
 
 namespace ZkManager
 {
@@ -115,6 +110,29 @@ namespace ZkManager
                 return;
             }
 
+            Main frm_Main = new Main(client, name);
+            // 隐藏登陆窗体
+            this.Hide();
+
+            // Yes 是重新连接，No 是直接退出
+            DialogResult result = DialogResult.No ;
+            try
+            {
+                result = frm_Main.ShowDialog();
+            }
+            catch (KeeperException ex)
+            {
+                log.Error("KeeperException", ex);
+            }
+
+            // 如果用户选择退出按钮
+            if (DialogResult.No == result)
+            {
+                Close();
+            }
+
+            // 用户选择了重新连接，重新展示该窗口
+            this.Show();
         }
         
     }
