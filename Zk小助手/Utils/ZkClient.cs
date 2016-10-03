@@ -157,7 +157,7 @@ namespace ZkManager
                 new Thread(() =>
                 {
                     zk.Dispose();
-                });
+                }).Start();
         }
     }
 

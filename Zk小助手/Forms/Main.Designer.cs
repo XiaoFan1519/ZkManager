@@ -36,9 +36,9 @@
             this.toolStripButton_refresh = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel_reconnect = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel_delete = new System.Windows.Forms.ToolStripLabel();
+            this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
             this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
             this.textBox_NodePath = new System.Windows.Forms.TextBox();
-            this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -113,6 +113,18 @@
             this.toolStripLabel_delete.Size = new System.Drawing.Size(32, 22);
             this.toolStripLabel_delete.Text = "删除";
             // 
+            // comboBox_Encoding
+            // 
+            this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_Encoding.FormattingEnabled = true;
+            this.comboBox_Encoding.Items.AddRange(new object[] {
+            "UTF-8"});
+            this.comboBox_Encoding.Location = new System.Drawing.Point(307, 3);
+            this.comboBox_Encoding.Name = "comboBox_Encoding";
+            this.comboBox_Encoding.Size = new System.Drawing.Size(58, 20);
+            this.comboBox_Encoding.TabIndex = 2;
+            this.comboBox_Encoding.Text = "UTF-8";
+            // 
             // richTextBox_NodeValue
             // 
             this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -133,18 +145,6 @@
             this.textBox_NodePath.Size = new System.Drawing.Size(298, 21);
             this.textBox_NodePath.TabIndex = 0;
             // 
-            // comboBox_Encoding
-            // 
-            this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_Encoding.FormattingEnabled = true;
-            this.comboBox_Encoding.Items.AddRange(new object[] {
-            "UTF-8"});
-            this.comboBox_Encoding.Location = new System.Drawing.Point(307, 3);
-            this.comboBox_Encoding.Name = "comboBox_Encoding";
-            this.comboBox_Encoding.Size = new System.Drawing.Size(58, 20);
-            this.comboBox_Encoding.TabIndex = 2;
-            this.comboBox_Encoding.Text = "UTF-8";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -153,6 +153,7 @@
             this.Controls.Add(this.splitContainer);
             this.Name = "Main";
             this.Text = "Main";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
