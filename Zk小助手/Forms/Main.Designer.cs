@@ -154,6 +154,7 @@
             this.Name = "Main";
             this.Text = "Main";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
