@@ -44,10 +44,11 @@ namespace ZkManager.Forms
             foreach (string node in nodes)
             {
                 TreeNode treeNode = new TreeNode(node);
+                // treeNode.ta
                 root.Nodes.Add(node);
                 // 为了防止递归造成的卡顿，这里只判断是否有子节点。
                 new Thread(delegate () {
-                    List<string> childNodes = zkClient.getChildren(path + node);
+                    List<string> childNodes = zkClient.getChildren(path + "/" + node);
                     if (childNodes.Count > 0)
                     {
                         treeNode.Nodes.Add("");
