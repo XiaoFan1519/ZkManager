@@ -62,7 +62,7 @@ namespace ZkManager.Forms
 
                 treeNode.Tag = childPath;
                 root.Nodes.Add(treeNode);
-                // 为了防止递归造成的卡顿，这里只判断是否有子节点。
+                // 为了防止网络延迟造成的卡顿，这里只判断是否有子节点。
                 new Thread(delegate () {
                     List<string> childNodes = zkClient.getChildren(childPath);
                     if (childNodes.Count > 0)
