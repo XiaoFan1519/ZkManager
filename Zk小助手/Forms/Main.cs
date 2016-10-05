@@ -105,10 +105,13 @@ namespace ZkManager.Forms
                 return;
             }
 
+            // 因为从zk获取节点会有短暂的卡顿，但会造成界面闪烁，所以用线程来处理
             new Thread(() =>
             {
                 string nodeValue = zkClient.getData(nodePath, encode);
-                // richTextBox_NodeValue.Text = nodeValue;
+                richTextBox_NodeValue.Invoke((Action)delegate () {
+                    richTextBox_NodeValue.Text = nodeValue;
+                });
             }).Start();
         }
 
