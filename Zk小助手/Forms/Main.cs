@@ -34,6 +34,8 @@ namespace ZkManager.Forms
         // 获取子节点信息
         private void getChildNode(TreeNode root, string path)
         {
+            root.Nodes.Clear();
+
             List<string> nodes = zkClient.getChildren(path);
             // 子节点为0，直接返回
             if (0 == nodes.Count)
@@ -63,9 +65,11 @@ namespace ZkManager.Forms
                     List<string> childNodes = zkClient.getChildren(childPath);
                     if (childNodes.Count > 0)
                     {
-                        treeNode.Nodes.Add("");
+                        nodeTree.Invoke((Action) delegate () {
+                            treeNode.Nodes.Add("");
+                        });
                     }
-                });
+                }).Start();
             }
             
         }
@@ -88,6 +92,12 @@ namespace ZkManager.Forms
         private void menuReconnect_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Yes;
+        }
+
+        private void nodeTree_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            TreeNode node = e.Node;
+            getChildNode(node, (string)node.Tag);
         }
     }
 }

@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("/");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
             this.menuToolStrip = new System.Windows.Forms.ToolStrip();
-            this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
-            this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
-            this.textBox_NodePath = new System.Windows.Forms.TextBox();
             this.memuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuReconnect = new System.Windows.Forms.ToolStripButton();
             this.memuDelete = new System.Windows.Forms.ToolStripButton();
+            this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
+            this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
+            this.textBox_NodePath = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -73,13 +73,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
-            treeNode6.Name = "节点0";
-            treeNode6.Tag = "/";
-            treeNode6.Text = "/";
+            treeNode1.Name = "节点0";
+            treeNode1.Tag = "/";
+            treeNode1.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode1});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
+            this.nodeTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.nodeTree_BeforeExpand);
             this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
             // 
             // menuToolStrip
@@ -93,39 +94,6 @@
             this.menuToolStrip.Size = new System.Drawing.Size(224, 25);
             this.menuToolStrip.TabIndex = 2;
             this.menuToolStrip.Text = "toolStrip1";
-            // 
-            // comboBox_Encoding
-            // 
-            this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_Encoding.FormattingEnabled = true;
-            this.comboBox_Encoding.Items.AddRange(new object[] {
-            "UTF-8"});
-            this.comboBox_Encoding.Location = new System.Drawing.Point(307, 3);
-            this.comboBox_Encoding.Name = "comboBox_Encoding";
-            this.comboBox_Encoding.Size = new System.Drawing.Size(58, 20);
-            this.comboBox_Encoding.TabIndex = 2;
-            this.comboBox_Encoding.Text = "UTF-8";
-            // 
-            // richTextBox_NodeValue
-            // 
-            this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_NodeValue.Location = new System.Drawing.Point(3, 28);
-            this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
-            this.richTextBox_NodeValue.Size = new System.Drawing.Size(362, 290);
-            this.richTextBox_NodeValue.TabIndex = 1;
-            this.richTextBox_NodeValue.Text = "";
-            // 
-            // textBox_NodePath
-            // 
-            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_NodePath.Location = new System.Drawing.Point(3, 3);
-            this.textBox_NodePath.Name = "textBox_NodePath";
-            this.textBox_NodePath.Size = new System.Drawing.Size(298, 21);
-            this.textBox_NodePath.TabIndex = 0;
-            this.textBox_NodePath.Text = "/";
             // 
             // memuRefresh
             // 
@@ -154,6 +122,40 @@
             this.memuDelete.Name = "memuDelete";
             this.memuDelete.Size = new System.Drawing.Size(36, 22);
             this.memuDelete.Text = "删除";
+            // 
+            // comboBox_Encoding
+            // 
+            this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_Encoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Encoding.FormattingEnabled = true;
+            this.comboBox_Encoding.Items.AddRange(new object[] {
+            "UTF-8"});
+            this.comboBox_Encoding.Location = new System.Drawing.Point(307, 3);
+            this.comboBox_Encoding.Name = "comboBox_Encoding";
+            this.comboBox_Encoding.Size = new System.Drawing.Size(58, 20);
+            this.comboBox_Encoding.TabIndex = 2;
+            // 
+            // richTextBox_NodeValue
+            // 
+            this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox_NodeValue.Location = new System.Drawing.Point(3, 28);
+            this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
+            this.richTextBox_NodeValue.Size = new System.Drawing.Size(362, 290);
+            this.richTextBox_NodeValue.TabIndex = 1;
+            this.richTextBox_NodeValue.Text = "";
+            // 
+            // textBox_NodePath
+            // 
+            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_NodePath.Location = new System.Drawing.Point(3, 3);
+            this.textBox_NodePath.Name = "textBox_NodePath";
+            this.textBox_NodePath.ReadOnly = true;
+            this.textBox_NodePath.Size = new System.Drawing.Size(298, 21);
+            this.textBox_NodePath.TabIndex = 0;
+            this.textBox_NodePath.Text = "/";
             // 
             // Main
             // 
