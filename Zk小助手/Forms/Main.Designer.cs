@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("/");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
             this.menuToolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton_refresh = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel_reconnect = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel_delete = new System.Windows.Forms.ToolStripLabel();
             this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
             this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
             this.textBox_NodePath = new System.Windows.Forms.TextBox();
+            this.memuRefresh = new System.Windows.Forms.ToolStripButton();
+            this.menuReconnect = new System.Windows.Forms.ToolStripButton();
+            this.memuDelete = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -73,11 +73,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
-            treeNode2.Name = "节点0";
-            treeNode2.Tag = "/";
-            treeNode2.Text = "/";
+            treeNode5.Name = "节点0";
+            treeNode5.Tag = "/";
+            treeNode5.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode5});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
             this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
@@ -85,36 +85,14 @@
             // menuToolStrip
             // 
             this.menuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton_refresh,
-            this.toolStripLabel_reconnect,
-            this.toolStripLabel_delete});
+            this.memuRefresh,
+            this.menuReconnect,
+            this.memuDelete});
             this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
             this.menuToolStrip.Name = "menuToolStrip";
             this.menuToolStrip.Size = new System.Drawing.Size(224, 25);
             this.menuToolStrip.TabIndex = 2;
             this.menuToolStrip.Text = "toolStrip1";
-            // 
-            // toolStripButton_refresh
-            // 
-            this.toolStripButton_refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_refresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_refresh.Image")));
-            this.toolStripButton_refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_refresh.Name = "toolStripButton_refresh";
-            this.toolStripButton_refresh.Size = new System.Drawing.Size(32, 22);
-            this.toolStripButton_refresh.Text = "刷新";
-            // 
-            // toolStripLabel_reconnect
-            // 
-            this.toolStripLabel_reconnect.Name = "toolStripLabel_reconnect";
-            this.toolStripLabel_reconnect.Size = new System.Drawing.Size(56, 22);
-            this.toolStripLabel_reconnect.Text = "重新连接";
-            this.toolStripLabel_reconnect.Click += new System.EventHandler(this.toolStripLabel_reconnect_Click);
-            // 
-            // toolStripLabel_delete
-            // 
-            this.toolStripLabel_delete.Name = "toolStripLabel_delete";
-            this.toolStripLabel_delete.Size = new System.Drawing.Size(32, 22);
-            this.toolStripLabel_delete.Text = "删除";
             // 
             // comboBox_Encoding
             // 
@@ -149,6 +127,34 @@
             this.textBox_NodePath.TabIndex = 0;
             this.textBox_NodePath.Text = "/";
             // 
+            // memuRefresh
+            // 
+            this.memuRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.memuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("memuRefresh.Image")));
+            this.memuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.memuRefresh.Name = "memuRefresh";
+            this.memuRefresh.Size = new System.Drawing.Size(36, 22);
+            this.memuRefresh.Text = "刷新";
+            // 
+            // menuReconnect
+            // 
+            this.menuReconnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.menuReconnect.Image = ((System.Drawing.Image)(resources.GetObject("menuReconnect.Image")));
+            this.menuReconnect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuReconnect.Name = "menuReconnect";
+            this.menuReconnect.Size = new System.Drawing.Size(60, 22);
+            this.menuReconnect.Text = "重新连接";
+            this.menuReconnect.Click += new System.EventHandler(this.menuReconnect_Click);
+            // 
+            // memuDelete
+            // 
+            this.memuDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.memuDelete.Image = ((System.Drawing.Image)(resources.GetObject("memuDelete.Image")));
+            this.memuDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.memuDelete.Name = "memuDelete";
+            this.memuDelete.Size = new System.Drawing.Size(36, 22);
+            this.memuDelete.Text = "删除";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -178,9 +184,9 @@
         private System.Windows.Forms.TreeView nodeTree;
         private System.Windows.Forms.TextBox textBox_NodePath;
         private System.Windows.Forms.RichTextBox richTextBox_NodeValue;
-        private System.Windows.Forms.ToolStripLabel toolStripButton_refresh;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel_reconnect;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel_delete;
         private System.Windows.Forms.ComboBox comboBox_Encoding;
+        private System.Windows.Forms.ToolStripButton memuRefresh;
+        private System.Windows.Forms.ToolStripButton menuReconnect;
+        private System.Windows.Forms.ToolStripButton memuDelete;
     }
 }
