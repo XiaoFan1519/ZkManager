@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("/");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
@@ -73,11 +73,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
-            treeNode1.Name = "节点0";
-            treeNode1.Tag = "/";
-            treeNode1.Text = "/";
+            treeNode2.Name = "节点0";
+            treeNode2.Tag = "/";
+            treeNode2.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
             this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
@@ -108,6 +108,7 @@
             this.toolStripLabel_reconnect.Name = "toolStripLabel_reconnect";
             this.toolStripLabel_reconnect.Size = new System.Drawing.Size(56, 22);
             this.toolStripLabel_reconnect.Text = "重新连接";
+            this.toolStripLabel_reconnect.Click += new System.EventHandler(this.toolStripLabel_reconnect_Click);
             // 
             // toolStripLabel_delete
             // 

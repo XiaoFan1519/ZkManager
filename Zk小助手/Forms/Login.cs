@@ -125,10 +125,11 @@ namespace ZkManager
                 log.Error("KeeperException", ex);
             }
 
-            // 如果用户选择退出按钮
-            if (DialogResult.No == result)
+            // 如果用户选择不是重新连接
+            if (DialogResult.Yes != result)
             {
                 Close();
+                return;
             }
 
             // 用户选择了重新连接，重新展示该窗口

@@ -84,5 +84,10 @@ namespace ZkManager.Forms
         {
             textBox_NodePath.Text = (string)e.Node.Tag;
         }
+
+        private void toolStripLabel_reconnect_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes;
+        }
     }
 }
