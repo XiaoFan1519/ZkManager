@@ -1,9 +1,6 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -12,6 +9,11 @@ namespace ZkManager.Forms
 {
     public partial class Main : Form
     {
+        /// <summary>
+        /// 日志类
+        /// </summary>
+        private static readonly ILog log = LogManager.GetLogger(typeof(Main));
+
         /// <summary>
         /// zk工具类
         /// </summary>
@@ -86,7 +88,28 @@ namespace ZkManager.Forms
 
         private void nodeTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            textBox_NodePath.Text = (string)e.Node.Tag;
+            string nodePath = (string)e.Node.Tag;
+            textBox_NodePath.Text = nodePath;
+
+            Encoding encode = null;
+
+            try
+            {
+                encode = getSelectedEncoding();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("错误的编码格式！请修改或重新选择。");
+                comboBox_Encoding.Focus();
+                log.Debug("Error Encode Name.", ex);
+                return;
+            }
+
+            new Thread(() =>
+            {
+                string nodeValue = zkClient.getData(nodePath, encode);
+                // richTextBox_NodeValue.Text = nodeValue;
+            }).Start();
         }
 
         private void menuReconnect_Click(object sender, EventArgs e)
@@ -98,6 +121,32 @@ namespace ZkManager.Forms
         {
             TreeNode node = e.Node;
             getChildNode(node, (string)node.Tag);
+        }
+
+        /// <summary>
+        /// 获取用户选择的编码
+        /// </summary>
+        /// <returns>返回指定编码对象</returns>
+        /// <exception cref="ArgumentException" />
+        private Encoding getSelectedEncoding()
+        {
+            string name = comboBox_Encoding.Text;
+            return Encoding.GetEncoding(name);
+        }
+
+        private void comboBox_Encoding_Leave(object sender, EventArgs e)
+        {
+            string name = comboBox_Encoding.Text;
+            try
+            {
+                Encoding.GetEncoding(name);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("错误的编码格式！请修改或重新选择。");
+                comboBox_Encoding.Focus();
+                log.Debug("Error Encode Name.", ex);
+            }
         }
     }
 }

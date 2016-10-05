@@ -56,7 +56,6 @@ namespace ZkManager
         {
             Exception ex = e.ExceptionObject as Exception;
             log.Error("UnhandledException", ex);
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -68,7 +67,6 @@ namespace ZkManager
         {
             Exception ex = e.Exception;
             log.Error("ThreadException", ex);
-            throw new NotImplementedException();
         }
     }
 }

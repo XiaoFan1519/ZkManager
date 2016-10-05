@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("/");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
@@ -73,11 +73,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
-            treeNode1.Name = "节点0";
-            treeNode1.Tag = "/";
-            treeNode1.Text = "/";
+            treeNode3.Name = "节点0";
+            treeNode3.Tag = "/";
+            treeNode3.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode3});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
             this.nodeTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.nodeTree_BeforeExpand);
@@ -126,14 +126,16 @@
             // comboBox_Encoding
             // 
             this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_Encoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Encoding.FormattingEnabled = true;
             this.comboBox_Encoding.Items.AddRange(new object[] {
-            "UTF-8"});
+            "UTF-8",
+            "GBK"});
             this.comboBox_Encoding.Location = new System.Drawing.Point(307, 3);
             this.comboBox_Encoding.Name = "comboBox_Encoding";
             this.comboBox_Encoding.Size = new System.Drawing.Size(58, 20);
             this.comboBox_Encoding.TabIndex = 2;
+            this.comboBox_Encoding.Text = "UTF-8";
+            this.comboBox_Encoding.Leave += new System.EventHandler(this.comboBox_Encoding_Leave);
             // 
             // richTextBox_NodeValue
             // 
