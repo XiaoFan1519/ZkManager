@@ -74,11 +74,13 @@
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
             treeNode1.Name = "节点0";
+            treeNode1.Tag = "/";
             treeNode1.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
+            this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
             // 
             // menuToolStrip
             // 
@@ -144,6 +146,7 @@
             this.textBox_NodePath.Name = "textBox_NodePath";
             this.textBox_NodePath.Size = new System.Drawing.Size(298, 21);
             this.textBox_NodePath.TabIndex = 0;
+            this.textBox_NodePath.Text = "/";
             // 
             // Main
             // 

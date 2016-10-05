@@ -44,11 +44,23 @@ namespace ZkManager.Forms
             foreach (string node in nodes)
             {
                 TreeNode treeNode = new TreeNode(node);
-                // treeNode.ta
-                root.Nodes.Add(node);
+                // 该子节点的全路径名
+                string childPath = "";
+
+                if (path.EndsWith("/"))
+                {
+                    childPath = path + node;
+                }
+                else
+                {
+                    childPath = path + "/" + node;
+                }
+
+                treeNode.Tag = childPath;
+                root.Nodes.Add(treeNode);
                 // 为了防止递归造成的卡顿，这里只判断是否有子节点。
                 new Thread(delegate () {
-                    List<string> childNodes = zkClient.getChildren(path + "/" + node);
+                    List<string> childNodes = zkClient.getChildren(childPath);
                     if (childNodes.Count > 0)
                     {
                         treeNode.Nodes.Add("");
@@ -66,6 +78,11 @@ namespace ZkManager.Forms
         private void Main_Load(object sender, EventArgs e)
         {
             getChildNode(nodeTree.Nodes[0], "/");
+        }
+
+        private void nodeTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            textBox_NodePath.Text = (string)e.Node.Tag;
         }
     }
 }
