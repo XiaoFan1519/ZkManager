@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("/");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
@@ -73,11 +73,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
-            treeNode5.Name = "节点0";
-            treeNode5.Tag = "/";
-            treeNode5.Text = "/";
+            treeNode6.Name = "节点0";
+            treeNode6.Tag = "/";
+            treeNode6.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode6});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
             this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
@@ -162,6 +162,7 @@
             this.ClientSize = new System.Drawing.Size(596, 321);
             this.Controls.Add(this.splitContainer);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
