@@ -39,9 +39,19 @@ namespace ZkManager.Forms
         {
             root.Nodes.Clear();
 
-            List<string> nodes = zkClient.getChildren(path);
+            List<string> nodes = null;
+
+            try
+            {
+                nodes = zkClient.getChildren(path);
+            }
+            catch (NoAuthException ex)
+            {
+                log.Debug("NoAuthException", ex);
+            }
+
             // 子节点为0，直接返回
-            if (0 == nodes.Count)
+            if (null == nodes || 0 == nodes.Count)
             {
                 return;
             }
@@ -73,7 +83,7 @@ namespace ZkManager.Forms
                     catch (NoAuthException ex)
                     {
                         childNodes.Add("没有权限");
-                        log.Error("NoAuthException", ex);
+                        log.Debug("NoAuthException", ex);
                     }
 
                     if (childNodes.Count > 0)
@@ -128,7 +138,7 @@ namespace ZkManager.Forms
                 catch (NoAuthException ex)
                 {
                     nodeValue = "没有权限";
-                    log.Error("NoAuthException", ex);
+                    log.Debug("NoAuthException", ex);
                 }
 
                 richTextBox_NodeValue.Invoke((Action)delegate () {
