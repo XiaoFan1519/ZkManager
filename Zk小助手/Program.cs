@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ZkManager.constant;
 using System.Threading;
+using static ZooKeeperNet.KeeperException;
 
 namespace ZkManager
 {
@@ -66,6 +67,12 @@ namespace ZkManager
         private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
             Exception ex = e.Exception;
+
+            if (ex is ConnectionLossException)
+            {
+                MessageBox.Show("连接丢失，请重新连接。");
+            }
+
             log.Error("ThreadException", ex);
         }
     }

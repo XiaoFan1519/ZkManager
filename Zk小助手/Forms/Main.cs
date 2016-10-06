@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using static ZooKeeperNet.KeeperException;
 
 namespace ZkManager.Forms
 {
@@ -64,7 +65,17 @@ namespace ZkManager.Forms
                 root.Nodes.Add(treeNode);
                 // 为了防止网络延迟造成的卡顿，这里只判断是否有子节点。
                 new Thread(delegate () {
-                    List<string> childNodes = zkClient.getChildren(childPath);
+                    List<string> childNodes = null;
+                    try
+                    {
+                        childNodes = zkClient.getChildren(childPath);
+                    }
+                    catch (NoAuthException ex)
+                    {
+                        childNodes.Add("没有权限");
+                        log.Error("NoAuthException", ex);
+                    }
+
                     if (childNodes.Count > 0)
                     {
                         nodeTree.Invoke((Action) delegate () {
@@ -108,7 +119,18 @@ namespace ZkManager.Forms
             // 因为从zk获取节点会有短暂的卡顿，但会造成界面闪烁，所以用线程来处理
             new Thread(() =>
             {
-                string nodeValue = zkClient.getData(nodePath, encode);
+                string nodeValue = null;
+
+                try
+                {
+                    nodeValue = zkClient.getData(nodePath, encode);
+                }
+                catch (NoAuthException ex)
+                {
+                    nodeValue = "没有权限";
+                    log.Error("NoAuthException", ex);
+                }
+
                 richTextBox_NodeValue.Invoke((Action)delegate () {
                     richTextBox_NodeValue.Text = nodeValue;
                 });
