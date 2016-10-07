@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("/");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
-            this.menuToolStrip = new System.Windows.Forms.ToolStrip();
+            this.leftMenuToolStrip = new System.Windows.Forms.ToolStrip();
             this.memuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuReconnect = new System.Windows.Forms.ToolStripButton();
             this.memuDelete = new System.Windows.Forms.ToolStripButton();
             this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
             this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
             this.textBox_NodePath = new System.Windows.Forms.TextBox();
+            this.RightMenuToolStrip = new System.Windows.Forms.ToolStrip();
+            this.menuSave = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            this.menuToolStrip.SuspendLayout();
+            this.leftMenuToolStrip.SuspendLayout();
+            this.RightMenuToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -55,10 +58,11 @@
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.Controls.Add(this.nodeTree);
-            this.splitContainer.Panel1.Controls.Add(this.menuToolStrip);
+            this.splitContainer.Panel1.Controls.Add(this.leftMenuToolStrip);
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.RightMenuToolStrip);
             this.splitContainer.Panel2.Controls.Add(this.comboBox_Encoding);
             this.splitContainer.Panel2.Controls.Add(this.richTextBox_NodeValue);
             this.splitContainer.Panel2.Controls.Add(this.textBox_NodePath);
@@ -73,27 +77,27 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.Location = new System.Drawing.Point(3, 28);
             this.nodeTree.Name = "nodeTree";
-            treeNode3.Name = "节点0";
-            treeNode3.Tag = "/";
-            treeNode3.Text = "/";
+            treeNode1.Name = "节点0";
+            treeNode1.Tag = "/";
+            treeNode1.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode1});
             this.nodeTree.Size = new System.Drawing.Size(218, 290);
             this.nodeTree.TabIndex = 3;
             this.nodeTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.nodeTree_BeforeExpand);
             this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
             // 
-            // menuToolStrip
+            // leftMenuToolStrip
             // 
-            this.menuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.leftMenuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.memuRefresh,
             this.menuReconnect,
             this.memuDelete});
-            this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuToolStrip.Name = "menuToolStrip";
-            this.menuToolStrip.Size = new System.Drawing.Size(224, 25);
-            this.menuToolStrip.TabIndex = 2;
-            this.menuToolStrip.Text = "toolStrip1";
+            this.leftMenuToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.leftMenuToolStrip.Name = "leftMenuToolStrip";
+            this.leftMenuToolStrip.Size = new System.Drawing.Size(224, 25);
+            this.leftMenuToolStrip.TabIndex = 2;
+            this.leftMenuToolStrip.Text = "toolStrip1";
             // 
             // memuRefresh
             // 
@@ -130,7 +134,7 @@
             this.comboBox_Encoding.Items.AddRange(new object[] {
             "UTF-8",
             "GBK"});
-            this.comboBox_Encoding.Location = new System.Drawing.Point(307, 3);
+            this.comboBox_Encoding.Location = new System.Drawing.Point(307, 28);
             this.comboBox_Encoding.Name = "comboBox_Encoding";
             this.comboBox_Encoding.Size = new System.Drawing.Size(58, 20);
             this.comboBox_Encoding.TabIndex = 2;
@@ -142,9 +146,9 @@
             this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_NodeValue.Location = new System.Drawing.Point(3, 28);
+            this.richTextBox_NodeValue.Location = new System.Drawing.Point(3, 54);
             this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
-            this.richTextBox_NodeValue.Size = new System.Drawing.Size(362, 290);
+            this.richTextBox_NodeValue.Size = new System.Drawing.Size(362, 264);
             this.richTextBox_NodeValue.TabIndex = 1;
             this.richTextBox_NodeValue.Text = "";
             // 
@@ -152,12 +156,32 @@
             // 
             this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_NodePath.Location = new System.Drawing.Point(3, 3);
+            this.textBox_NodePath.Location = new System.Drawing.Point(3, 28);
             this.textBox_NodePath.Name = "textBox_NodePath";
             this.textBox_NodePath.ReadOnly = true;
             this.textBox_NodePath.Size = new System.Drawing.Size(298, 21);
             this.textBox_NodePath.TabIndex = 0;
             this.textBox_NodePath.Text = "/";
+            // 
+            // RightMenuToolStrip
+            // 
+            this.RightMenuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSave});
+            this.RightMenuToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.RightMenuToolStrip.Name = "RightMenuToolStrip";
+            this.RightMenuToolStrip.Size = new System.Drawing.Size(368, 25);
+            this.RightMenuToolStrip.TabIndex = 3;
+            this.RightMenuToolStrip.Text = "RightMenuToolStrip";
+            // 
+            // menuSave
+            // 
+            this.menuSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.menuSave.Image = ((System.Drawing.Image)(resources.GetObject("menuSave.Image")));
+            this.menuSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuSave.Name = "menuSave";
+            this.menuSave.Size = new System.Drawing.Size(36, 22);
+            this.menuSave.Text = "保存";
+            this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
             // Main
             // 
@@ -176,8 +200,10 @@
             this.splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            this.menuToolStrip.ResumeLayout(false);
-            this.menuToolStrip.PerformLayout();
+            this.leftMenuToolStrip.ResumeLayout(false);
+            this.leftMenuToolStrip.PerformLayout();
+            this.RightMenuToolStrip.ResumeLayout(false);
+            this.RightMenuToolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -185,7 +211,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.ToolStrip menuToolStrip;
+        private System.Windows.Forms.ToolStrip leftMenuToolStrip;
         private System.Windows.Forms.TreeView nodeTree;
         private System.Windows.Forms.TextBox textBox_NodePath;
         private System.Windows.Forms.RichTextBox richTextBox_NodeValue;
@@ -193,5 +219,7 @@
         private System.Windows.Forms.ToolStripButton memuRefresh;
         private System.Windows.Forms.ToolStripButton menuReconnect;
         private System.Windows.Forms.ToolStripButton memuDelete;
+        private System.Windows.Forms.ToolStrip RightMenuToolStrip;
+        private System.Windows.Forms.ToolStripButton menuSave;
     }
 }

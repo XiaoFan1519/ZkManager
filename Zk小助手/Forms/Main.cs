@@ -183,5 +183,28 @@ namespace ZkManager.Forms
                 log.Debug("Error Encode Name.", ex);
             }
         }
+
+        private void menuSave_Click(object sender, EventArgs e)
+        {
+            // 要设置值的节点全路径
+            string nodePath = textBox_NodePath.Text;
+            // 要设置的值 默认UTF-8
+            string nodeValue = richTextBox_NodeValue.Text;
+
+            Encoding encode = null;
+            try
+            {
+                encode = getSelectedEncoding();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("错误的编码格式！请修改或重新选择。");
+                comboBox_Encoding.Focus();
+                log.Debug("Error Encode Name.", ex);
+                return;
+            }
+
+            zkClient.setData(nodePath, nodeValue, encode);
+        }
     }
 }
