@@ -1,12 +1,17 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using ZooKeeperNet;
 
 namespace ZkManager
 {
+    /// <summary>
+    /// zk工具类
+    /// </summary>
     public class ZkClient
     {
         /// <summary>
@@ -43,13 +48,26 @@ namespace ZkManager
         /// <param name="sync">同步，还是异步(同步需要等待连接结果)</param>
         public ZkClient(string connectString, int sessionTimeout, bool sync = true)
         {
-            if (sync)
+            try
             {
-                syncConnectZk(connectString, sessionTimeout);
+                if (sync)
+                {
+                    syncConnectZk(connectString, sessionTimeout);
+                }
+                else
+                {
+                    asyncConnectZk(connectString, sessionTimeout);
+                }
             }
-            else
+            catch (FileLoadException ex)
             {
-                asyncConnectZk(connectString, sessionTimeout);
+                log.Error("FileLoadException", ex);
+                isConnected = false;
+            }
+            catch (SocketException ex)
+            {
+                log.Error("SocketException", ex);
+                isConnected = false;
             }
         }
 
@@ -139,7 +157,7 @@ namespace ZkManager
                 new Thread(() =>
                 {
                     zk.Dispose();
-                });
+                }).Start();
         }
     }
 
