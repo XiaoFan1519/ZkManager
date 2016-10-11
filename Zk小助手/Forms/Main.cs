@@ -206,5 +206,12 @@ namespace ZkManager.Forms
 
             zkClient.setData(nodePath, nodeValue, encode);
         }
+
+        private void menuUpdate_Click(object sender, EventArgs e)
+        {
+            TreeNode node = nodeTree.SelectedNode;
+            TreeNodeMouseClickEventArgs @event = new TreeNodeMouseClickEventArgs(node, new MouseButtons(), 0, 0, 0);
+            nodeTree_NodeMouseClick(sender, @event);
+        }
     }
 }
