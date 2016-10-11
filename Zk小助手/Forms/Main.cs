@@ -88,7 +88,7 @@ namespace ZkManager.Forms
 
                     if (childNodes.Count > 0)
                     {
-                        nodeTree.Invoke((Action) delegate () {
+                        nodeTree.BeginInvoke((Action) delegate () {
                             treeNode.Nodes.Add("");
                         });
                     }
@@ -141,7 +141,7 @@ namespace ZkManager.Forms
                     log.Debug("NoAuthException", ex);
                 }
 
-                richTextBox_NodeValue.Invoke((Action)delegate () {
+                richTextBox_NodeValue.BeginInvoke((Action)delegate () {
                     richTextBox_NodeValue.Text = nodeValue;
                 });
             }).Start();
