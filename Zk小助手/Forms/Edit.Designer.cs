@@ -58,14 +58,15 @@
             // 
             this.textBox_Name.Location = new System.Drawing.Point(93, 6);
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(150, 25);
+            this.textBox_Name.Size = new System.Drawing.Size(168, 25);
             this.textBox_Name.TabIndex = 2;
+            this.textBox_Name.Text = "115.28.157.125:30001";
             // 
             // textBox_Ip
             // 
             this.textBox_Ip.Location = new System.Drawing.Point(93, 37);
             this.textBox_Ip.Name = "textBox_Ip";
-            this.textBox_Ip.Size = new System.Drawing.Size(150, 25);
+            this.textBox_Ip.Size = new System.Drawing.Size(168, 25);
             this.textBox_Ip.TabIndex = 3;
             // 
             // button_OK
@@ -81,7 +82,7 @@
             // button_Cancle
             // 
             this.button_Cancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Cancle.Location = new System.Drawing.Point(175, 68);
+            this.button_Cancle.Location = new System.Drawing.Point(193, 68);
             this.button_Cancle.Name = "button_Cancle";
             this.button_Cancle.Size = new System.Drawing.Size(68, 26);
             this.button_Cancle.TabIndex = 5;
@@ -95,7 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button_Cancle;
-            this.ClientSize = new System.Drawing.Size(257, 102);
+            this.ClientSize = new System.Drawing.Size(273, 102);
             this.Controls.Add(this.button_Cancle);
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.textBox_Ip);
