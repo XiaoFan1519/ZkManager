@@ -60,7 +60,6 @@
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(168, 25);
             this.textBox_Name.TabIndex = 2;
-            this.textBox_Name.Text = "115.28.157.125:30001";
             // 
             // textBox_Ip
             // 
