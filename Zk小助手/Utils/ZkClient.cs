@@ -134,6 +134,12 @@ namespace ZkManager
         public string getData(string path, Encoding dstEncode)
         {
             byte[] data = zk.GetData(path, false, null);
+
+            if (null == data)
+            {
+                return "";
+            }
+
             return dstEncode.GetString(data);
         }
 
