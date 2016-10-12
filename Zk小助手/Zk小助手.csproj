@@ -48,9 +48,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZooKeeperNet">
-      <HintPath>..\packages\ZooKeeper.Net.3.4.6.2\lib\net40\ZooKeeperNet.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Constant .cs" />
@@ -115,6 +112,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Publish\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\zookeeper\src\dotnet\ZooKeeperNet\ZooKeeperNet.csproj">
+      <Project>{5c6774fb-2350-46b2-b1df-1ccc757c7727}</Project>
+      <Name>ZooKeeperNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
