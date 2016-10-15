@@ -213,5 +213,17 @@ namespace ZkManager.Forms
             TreeNodeMouseClickEventArgs @event = new TreeNodeMouseClickEventArgs(node, new MouseButtons(), 0, 0, 0);
             nodeTree_NodeMouseClick(sender, @event);
         }
+
+        private void memuRefresh_Click(object sender, EventArgs e)
+        {
+            TreeNode node = nodeTree.SelectedNode;
+
+            if (null == node)
+            {
+                return;
+            }
+
+            getChildNode(node, (string)node.Tag);
+        }
     }
 }
