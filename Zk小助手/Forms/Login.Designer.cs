@@ -90,7 +90,7 @@
             this.Button_Login.Location = new System.Drawing.Point(235, 99);
             this.Button_Login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Button_Login.Name = "Button_Login";
-            this.Button_Login.Size = new System.Drawing.Size(85, 23);
+            this.Button_Login.Size = new System.Drawing.Size(85, 25);
             this.Button_Login.TabIndex = 4;
             this.Button_Login.Text = "进入";
             this.Button_Login.UseVisualStyleBackColor = true;

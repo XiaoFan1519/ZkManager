@@ -19,7 +19,6 @@ namespace ZkManager
         private Config config;
         public Login(Config config)
         {
-            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             this.config = config;
         }
