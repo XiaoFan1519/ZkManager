@@ -98,10 +98,11 @@ namespace ZkManager
             {
                 return;
             }
-
+            this.Cursor = Cursors.WaitCursor;
             string name = (string)ListBox_IpList.Items[index];
             string value = config[name];
             ZkClient client = new ZkClient(value, 3000);
+            this.Cursor = Cursors.Default;
             if (!client.IsConected)
             {
                 MessageBox.Show("无法连接到指定IP。");
