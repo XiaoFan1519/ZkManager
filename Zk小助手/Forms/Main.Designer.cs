@@ -28,32 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("/");
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.nodeTree = new System.Windows.Forms.TreeView();
             this.leftMenuToolStrip = new System.Windows.Forms.ToolStrip();
             this.memuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuReconnect = new System.Windows.Forms.ToolStripButton();
-            this.memuDelete = new System.Windows.Forms.ToolStripButton();
+            this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
+            this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
+            this.textBox_NodePath = new System.Windows.Forms.TextBox();
             this.RightMenuToolStrip = new System.Windows.Forms.ToolStrip();
             this.menuUpdate = new System.Windows.Forms.ToolStripButton();
             this.menuSave = new System.Windows.Forms.ToolStripButton();
-            this.nodeTree = new System.Windows.Forms.TreeView();
-            this.textBox_NodePath = new System.Windows.Forms.TextBox();
-            this.comboBox_Encoding = new System.Windows.Forms.ComboBox();
-            this.richTextBox_NodeValue = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAbout = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.leftMenuToolStrip.SuspendLayout();
             this.RightMenuToolStrip.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -67,9 +74,25 @@
             this.splitContainer.Panel2.Controls.Add(this.comboBox_Encoding);
             this.splitContainer.Panel2.Controls.Add(this.textBox_NodePath);
             this.splitContainer.Panel2.Controls.Add(this.RightMenuToolStrip);
-            this.splitContainer.Size = new System.Drawing.Size(782, 447);
-            this.splitContainer.SplitterDistance = 299;
+            this.splitContainer.Size = new System.Drawing.Size(586, 358);
+            this.splitContainer.SplitterDistance = 224;
+            this.splitContainer.SplitterWidth = 3;
             this.splitContainer.TabIndex = 15;
+            // 
+            // nodeTree
+            // 
+            this.nodeTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nodeTree.Location = new System.Drawing.Point(3, 25);
+            this.nodeTree.Name = "nodeTree";
+            treeNode2.Name = "节点0";
+            treeNode2.Tag = "/";
+            treeNode2.Text = "/";
+            this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            this.nodeTree.Size = new System.Drawing.Size(219, 330);
+            this.nodeTree.TabIndex = 16;
             // 
             // leftMenuToolStrip
             // 
@@ -77,10 +100,10 @@
             this.leftMenuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.memuRefresh,
             this.menuReconnect,
-            this.memuDelete});
+            this.menuAbout});
             this.leftMenuToolStrip.Location = new System.Drawing.Point(0, 0);
             this.leftMenuToolStrip.Name = "leftMenuToolStrip";
-            this.leftMenuToolStrip.Size = new System.Drawing.Size(299, 27);
+            this.leftMenuToolStrip.Size = new System.Drawing.Size(224, 25);
             this.leftMenuToolStrip.TabIndex = 15;
             this.leftMenuToolStrip.Text = "toolStrip1";
             // 
@@ -90,7 +113,7 @@
             this.memuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("memuRefresh.Image")));
             this.memuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.memuRefresh.Name = "memuRefresh";
-            this.memuRefresh.Size = new System.Drawing.Size(43, 24);
+            this.memuRefresh.Size = new System.Drawing.Size(36, 22);
             this.memuRefresh.Text = "刷新";
             // 
             // menuReconnect
@@ -99,17 +122,45 @@
             this.menuReconnect.Image = ((System.Drawing.Image)(resources.GetObject("menuReconnect.Image")));
             this.menuReconnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.menuReconnect.Name = "menuReconnect";
-            this.menuReconnect.Size = new System.Drawing.Size(73, 24);
+            this.menuReconnect.Size = new System.Drawing.Size(60, 22);
             this.menuReconnect.Text = "重新连接";
             // 
-            // memuDelete
+            // richTextBox_NodeValue
             // 
-            this.memuDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.memuDelete.Image = ((System.Drawing.Image)(resources.GetObject("memuDelete.Image")));
-            this.memuDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.memuDelete.Name = "memuDelete";
-            this.memuDelete.Size = new System.Drawing.Size(43, 24);
-            this.memuDelete.Text = "删除";
+            this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox_NodeValue.Location = new System.Drawing.Point(2, 50);
+            this.richTextBox_NodeValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
+            this.richTextBox_NodeValue.Size = new System.Drawing.Size(355, 306);
+            this.richTextBox_NodeValue.TabIndex = 17;
+            this.richTextBox_NodeValue.Text = "";
+            // 
+            // comboBox_Encoding
+            // 
+            this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_Encoding.FormattingEnabled = true;
+            this.comboBox_Encoding.Items.AddRange(new object[] {
+            "UTF-8",
+            "GBK"});
+            this.comboBox_Encoding.Location = new System.Drawing.Point(300, 25);
+            this.comboBox_Encoding.Name = "comboBox_Encoding";
+            this.comboBox_Encoding.Size = new System.Drawing.Size(57, 20);
+            this.comboBox_Encoding.TabIndex = 16;
+            this.comboBox_Encoding.Text = "UTF-8";
+            // 
+            // textBox_NodePath
+            // 
+            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_NodePath.Location = new System.Drawing.Point(2, 25);
+            this.textBox_NodePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_NodePath.Name = "textBox_NodePath";
+            this.textBox_NodePath.ReadOnly = true;
+            this.textBox_NodePath.Size = new System.Drawing.Size(294, 21);
+            this.textBox_NodePath.TabIndex = 15;
+            this.textBox_NodePath.Text = "/";
             // 
             // RightMenuToolStrip
             // 
@@ -119,7 +170,7 @@
             this.menuSave});
             this.RightMenuToolStrip.Location = new System.Drawing.Point(0, 0);
             this.RightMenuToolStrip.Name = "RightMenuToolStrip";
-            this.RightMenuToolStrip.Size = new System.Drawing.Size(479, 27);
+            this.RightMenuToolStrip.Size = new System.Drawing.Size(359, 25);
             this.RightMenuToolStrip.TabIndex = 14;
             this.RightMenuToolStrip.Text = "RightMenuToolStrip";
             // 
@@ -129,7 +180,7 @@
             this.menuUpdate.Image = ((System.Drawing.Image)(resources.GetObject("menuUpdate.Image")));
             this.menuUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.menuUpdate.Name = "menuUpdate";
-            this.menuUpdate.Size = new System.Drawing.Size(43, 24);
+            this.menuUpdate.Size = new System.Drawing.Size(36, 22);
             this.menuUpdate.Text = "更新";
             // 
             // menuSave
@@ -138,68 +189,51 @@
             this.menuSave.Image = ((System.Drawing.Image)(resources.GetObject("menuSave.Image")));
             this.menuSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.menuSave.Name = "menuSave";
-            this.menuSave.Size = new System.Drawing.Size(43, 24);
+            this.menuSave.Size = new System.Drawing.Size(36, 22);
             this.menuSave.Text = "保存";
             // 
-            // nodeTree
+            // contextMenuStrip1
             // 
-            this.nodeTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nodeTree.Location = new System.Drawing.Point(4, 31);
-            this.nodeTree.Margin = new System.Windows.Forms.Padding(4);
-            this.nodeTree.Name = "nodeTree";
-            treeNode1.Name = "节点0";
-            treeNode1.Tag = "/";
-            treeNode1.Text = "/";
-            this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.nodeTree.Size = new System.Drawing.Size(291, 412);
-            this.nodeTree.TabIndex = 16;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.刷新ToolStripMenuItem,
+            this.新增ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 70);
             // 
-            // textBox_NodePath
+            // 刷新ToolStripMenuItem
             // 
-            this.textBox_NodePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_NodePath.Location = new System.Drawing.Point(3, 31);
-            this.textBox_NodePath.Name = "textBox_NodePath";
-            this.textBox_NodePath.ReadOnly = true;
-            this.textBox_NodePath.Size = new System.Drawing.Size(390, 25);
-            this.textBox_NodePath.TabIndex = 15;
-            this.textBox_NodePath.Text = "/";
+            this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.刷新ToolStripMenuItem.Text = "刷新";
             // 
-            // comboBox_Encoding
+            // 新增ToolStripMenuItem
             // 
-            this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_Encoding.FormattingEnabled = true;
-            this.comboBox_Encoding.Items.AddRange(new object[] {
-            "UTF-8",
-            "GBK"});
-            this.comboBox_Encoding.Location = new System.Drawing.Point(400, 31);
-            this.comboBox_Encoding.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox_Encoding.Name = "comboBox_Encoding";
-            this.comboBox_Encoding.Size = new System.Drawing.Size(75, 23);
-            this.comboBox_Encoding.TabIndex = 16;
-            this.comboBox_Encoding.Text = "UTF-8";
+            this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
+            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.新增ToolStripMenuItem.Text = "新增";
             // 
-            // richTextBox_NodeValue
+            // 删除ToolStripMenuItem
             // 
-            this.richTextBox_NodeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_NodeValue.Location = new System.Drawing.Point(3, 62);
-            this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
-            this.richTextBox_NodeValue.Size = new System.Drawing.Size(472, 381);
-            this.richTextBox_NodeValue.TabIndex = 17;
-            this.richTextBox_NodeValue.Text = "";
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            // 
+            // menuAbout
+            // 
+            this.menuAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.menuAbout.Image = ((System.Drawing.Image)(resources.GetObject("menuAbout.Image")));
+            this.menuAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuAbout.Name = "menuAbout";
+            this.menuAbout.Size = new System.Drawing.Size(36, 22);
+            this.menuAbout.Text = "关于";
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 447);
+            this.ClientSize = new System.Drawing.Size(586, 358);
             this.Controls.Add(this.splitContainer);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -215,6 +249,7 @@
             this.leftMenuToolStrip.PerformLayout();
             this.RightMenuToolStrip.ResumeLayout(false);
             this.RightMenuToolStrip.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -224,7 +259,6 @@
         private System.Windows.Forms.ToolStrip leftMenuToolStrip;
         private System.Windows.Forms.ToolStripButton memuRefresh;
         private System.Windows.Forms.ToolStripButton menuReconnect;
-        private System.Windows.Forms.ToolStripButton memuDelete;
         private System.Windows.Forms.ToolStrip RightMenuToolStrip;
         private System.Windows.Forms.ToolStripButton menuUpdate;
         private System.Windows.Forms.ToolStripButton menuSave;
@@ -232,5 +266,10 @@
         private System.Windows.Forms.RichTextBox richTextBox_NodeValue;
         private System.Windows.Forms.ComboBox comboBox_Encoding;
         private System.Windows.Forms.TextBox textBox_NodePath;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 新增ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton menuAbout;
     }
 }
