@@ -1,4 +1,5 @@
 ﻿using log4net;
+using Org.Apache.Zookeeper.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -141,6 +142,22 @@ namespace ZkManager
             }
 
             return dstEncode.GetString(data);
+        }
+
+        /// <summary>
+        /// 创建节点
+        /// </summary>
+        /// <param name="path">节点路径</param>
+        /// <param name="mode">节点模式</param>
+        /// <returns></returns>
+        public string create(string path, CreateMode mode)
+        {
+            // 设置新节点的权限
+            List<ACL> acls = new List<ACL>();
+            acls.Add(new ACL(Perms.ALL, Ids.ANYONE_ID_UNSAFE));
+
+            string createdPath = zk.Create(path, new byte[0], acls, mode);
+            return createdPath;
         }
 
         /// <summary>

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26014.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zk小助手", "Zk小助手\Zk小助手.csproj", "{6B488C87-2CB4-4A9B-8402-1E0A686BC4F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZkManager", "ZkManager\ZkManager.csproj", "{D8D29FF8-5955-45B6-86D4-44B9C78350A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,24 @@ Global
 		{D8D29FF8-5955-45B6-86D4-44B9C78350A4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D8D29FF8-5955-45B6-86D4-44B9C78350A4}.Release|x86.ActiveCfg = Release|Any CPU
 		{D8D29FF8-5955-45B6-86D4-44B9C78350A4}.Release|x86.Build.0 = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Debug|x86.Build.0 = Debug|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release 2.0|Any CPU.ActiveCfg = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release 2.0|Any CPU.Build.0 = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release 2.0|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release 2.0|Mixed Platforms.Build.0 = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release 2.0|x86.ActiveCfg = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release 2.0|x86.Build.0 = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{0A2E6B8A-A0A4-422B-80C0-96728C4360AF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
