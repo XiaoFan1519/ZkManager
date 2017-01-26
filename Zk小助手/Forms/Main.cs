@@ -220,10 +220,16 @@ namespace ZkManager.Forms
 
             if (null == node)
             {
+                node = nodeTree.Nodes[0];
                 return;
             }
 
             getChildNode(node, (string)node.Tag);
+        }
+
+        private void addMenuI_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
