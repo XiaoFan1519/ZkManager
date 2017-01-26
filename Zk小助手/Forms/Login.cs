@@ -135,6 +135,10 @@ namespace ZkManager
             // 用户选择了重新连接，重新展示该窗口
             this.Show();
         }
-        
+
+        private void ListBox_IpList_DoubleClick(object sender, EventArgs e)
+        {
+            Button_Login_Click(sender, e);
+        }
     }
 }

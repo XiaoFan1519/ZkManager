@@ -43,16 +43,17 @@
             this.ListBox_IpList.FormattingEnabled = true;
             this.ListBox_IpList.ItemHeight = 12;
             this.ListBox_IpList.Location = new System.Drawing.Point(9, 10);
-            this.ListBox_IpList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ListBox_IpList.Margin = new System.Windows.Forms.Padding(2);
             this.ListBox_IpList.Name = "ListBox_IpList";
             this.ListBox_IpList.Size = new System.Drawing.Size(164, 220);
             this.ListBox_IpList.TabIndex = 0;
+            this.ListBox_IpList.DoubleClick += new System.EventHandler(this.ListBox_IpList_DoubleClick);
             // 
             // Button_Add
             // 
             this.Button_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_Add.Location = new System.Drawing.Point(176, 10);
-            this.Button_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Button_Add.Margin = new System.Windows.Forms.Padding(2);
             this.Button_Add.Name = "Button_Add";
             this.Button_Add.Size = new System.Drawing.Size(64, 20);
             this.Button_Add.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             this.Button_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_Edit.Location = new System.Drawing.Point(176, 33);
-            this.Button_Edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Button_Edit.Margin = new System.Windows.Forms.Padding(2);
             this.Button_Edit.Name = "Button_Edit";
             this.Button_Edit.Size = new System.Drawing.Size(64, 20);
             this.Button_Edit.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             this.Button_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_Delete.Location = new System.Drawing.Point(176, 56);
-            this.Button_Delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Button_Delete.Margin = new System.Windows.Forms.Padding(2);
             this.Button_Delete.Name = "Button_Delete";
             this.Button_Delete.Size = new System.Drawing.Size(64, 20);
             this.Button_Delete.TabIndex = 3;
@@ -88,7 +89,7 @@
             // 
             this.Button_Login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_Login.Location = new System.Drawing.Point(176, 79);
-            this.Button_Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Button_Login.Margin = new System.Windows.Forms.Padding(2);
             this.Button_Login.Name = "Button_Login";
             this.Button_Login.Size = new System.Drawing.Size(64, 20);
             this.Button_Login.TabIndex = 4;
@@ -107,7 +108,7 @@
             this.Controls.Add(this.Button_Edit);
             this.Controls.Add(this.Button_Add);
             this.Controls.Add(this.ListBox_IpList);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "登陆";
