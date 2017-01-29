@@ -94,7 +94,6 @@
             treeNode2});
             this.nodeTree.Size = new System.Drawing.Size(219, 330);
             this.nodeTree.TabIndex = 16;
-            this.nodeTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.nodeTree_AfterLabelEdit);
             this.nodeTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.nodeTree_BeforeExpand);
             this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
             // 

@@ -46,9 +46,10 @@ namespace ZkManager.Forms
             {
                 nodes = zkClient.getChildren(path);
             }
-            catch (NoAuthException ex)
+            catch (Exception ex)
             {
-                log.Debug("NoAuthException", ex);
+                log.Debug("Exception", ex);
+                MessageBox.Show("异常：" + ex.Message);
             }
 
             // 子节点为0，直接返回
@@ -141,7 +142,11 @@ namespace ZkManager.Forms
                     nodeValue = "没有权限";
                     log.Debug("NoAuthException", ex);
                 }
-
+                catch(Exception ex)
+                {
+                    MessageBox.Show("异常：" + ex.Message);
+                    log.Debug("Exception", ex);
+                }
                 richTextBox_NodeValue.BeginInvoke((Action)delegate () {
                     richTextBox_NodeValue.Text = nodeValue;
                 });
@@ -236,64 +241,9 @@ namespace ZkManager.Forms
             if (null == node)
             {
                 node = nodeTree.Nodes[0];
-                return;
-            }
-            
-            // 这里只是为了展开选中的节点
-            if (!node.IsExpanded)
-            {
-                node.Nodes.Add(new TreeNode());
-                node.Expand();
             }
 
-            // 加入新节点
-            TreeNode treeNode = new TreeNode();
-            node.Nodes.Add(treeNode);
-
-            // 开始编辑模式
-            nodeTree.LabelEdit = true;
-            treeNode.BeginEdit();
-        }
-
-        private void nodeTree_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
-        {
-            TreeNode currentNode = e.Node;
-
-            // 结束编辑模式
-            currentNode.EndEdit(false);
-            e.CancelEdit = true;
-
-            string newVal = e.Label;
-
-            // 如果是空，则删除新增的节点
-            if (null == newVal || "".Equals(newVal))
-            {
-                currentNode.Parent.Nodes.Remove(currentNode);
-                return;
-            }
-
-            string fullPath = (string)currentNode.Parent.Tag;
-            // 当在根节点下创建的情况
-            if (null == currentNode.Parent.Parent)
-            {
-                fullPath = "";
-            }
-
-            // 拼接新路径
-            string path = fullPath + "/" + newVal;
-            currentNode.Tag = path;
-            currentNode.Text = newVal;
-            try
-            {
-                zkClient.create(path, CreateMode.Persistent);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("创建节点 " + path +  "失败！");
-                log.Debug("Error Create Node.", ex);
-                currentNode.Parent.Nodes.Remove(currentNode);
-            }
-            
+            new Add(node, zkClient).ShowDialog();
         }
 
         // 删除节点，包括子节点
@@ -316,7 +266,7 @@ namespace ZkManager.Forms
                 List<string> childNodes = zkClient.getChildren((string)node.Tag);
                 if (childNodes.Count > 0)
                 {
-                    if (DialogResult.No == MessageBox.Show("节点 " + path + " 存在子节点，是否继续删除？", "提示", MessageBoxButtons.YesNo))
+                    if (DialogResult.No == MessageBox.Show("节点 " + path + " 存在子节点，是否全部删除？", "提示", MessageBoxButtons.YesNo))
                     {
                         return;
                     }
