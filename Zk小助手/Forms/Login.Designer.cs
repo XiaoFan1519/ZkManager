@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.ListBox_IpList = new System.Windows.Forms.ListBox();
             this.Button_Add = new System.Windows.Forms.Button();
             this.Button_Edit = new System.Windows.Forms.Button();
@@ -108,6 +109,7 @@
             this.Controls.Add(this.Button_Edit);
             this.Controls.Add(this.Button_Add);
             this.Controls.Add(this.ListBox_IpList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

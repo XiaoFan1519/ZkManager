@@ -95,7 +95,8 @@
             this.nodeTree.Size = new System.Drawing.Size(219, 330);
             this.nodeTree.TabIndex = 16;
             this.nodeTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.nodeTree_AfterLabelEdit);
-            this.nodeTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.nodeTree_BeforeExpand_1);
+            this.nodeTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.nodeTree_BeforeExpand);
+            this.nodeTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.nodeTree_NodeMouseClick);
             // 
             // contextMenuStrip1
             // 
@@ -109,22 +110,23 @@
             // refreshMenu
             // 
             this.refreshMenu.Name = "refreshMenu";
-            this.refreshMenu.Size = new System.Drawing.Size(100, 22);
+            this.refreshMenu.Size = new System.Drawing.Size(152, 22);
             this.refreshMenu.Text = "刷新";
             this.refreshMenu.Click += new System.EventHandler(this.memuRefresh_Click);
             // 
             // addMenuI
             // 
             this.addMenuI.Name = "addMenuI";
-            this.addMenuI.Size = new System.Drawing.Size(100, 22);
+            this.addMenuI.Size = new System.Drawing.Size(152, 22);
             this.addMenuI.Text = "新增";
             this.addMenuI.Click += new System.EventHandler(this.addMenuI_Click);
             // 
             // delMenu
             // 
             this.delMenu.Name = "delMenu";
-            this.delMenu.Size = new System.Drawing.Size(100, 22);
+            this.delMenu.Size = new System.Drawing.Size(152, 22);
             this.delMenu.Text = "删除";
+            this.delMenu.Click += new System.EventHandler(this.delMenu_Click);
             // 
             // leftMenuToolStrip
             // 
@@ -147,6 +149,7 @@
             this.memuRefresh.Name = "memuRefresh";
             this.memuRefresh.Size = new System.Drawing.Size(36, 22);
             this.memuRefresh.Text = "刷新";
+            this.memuRefresh.Click += new System.EventHandler(this.memuRefresh_Click);
             // 
             // menuReconnect
             // 
@@ -156,7 +159,7 @@
             this.menuReconnect.Name = "menuReconnect";
             this.menuReconnect.Size = new System.Drawing.Size(60, 22);
             this.menuReconnect.Text = "重新连接";
-            this.menuReconnect.Click += new System.EventHandler(this.menuReconnect_Click_1);
+            this.menuReconnect.Click += new System.EventHandler(this.menuReconnect_Click);
             // 
             // menuAbout
             // 
@@ -175,7 +178,7 @@
             this.richTextBox_NodeValue.Location = new System.Drawing.Point(2, 50);
             this.richTextBox_NodeValue.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox_NodeValue.Name = "richTextBox_NodeValue";
-            this.richTextBox_NodeValue.Size = new System.Drawing.Size(357, 306);
+            this.richTextBox_NodeValue.Size = new System.Drawing.Size(360, 306);
             this.richTextBox_NodeValue.TabIndex = 17;
             this.richTextBox_NodeValue.Text = "";
             // 
@@ -186,7 +189,7 @@
             this.comboBox_Encoding.Items.AddRange(new object[] {
             "UTF-8",
             "GBK"});
-            this.comboBox_Encoding.Location = new System.Drawing.Point(302, 25);
+            this.comboBox_Encoding.Location = new System.Drawing.Point(305, 25);
             this.comboBox_Encoding.Name = "comboBox_Encoding";
             this.comboBox_Encoding.Size = new System.Drawing.Size(57, 20);
             this.comboBox_Encoding.TabIndex = 16;
@@ -200,7 +203,7 @@
             this.textBox_NodePath.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_NodePath.Name = "textBox_NodePath";
             this.textBox_NodePath.ReadOnly = true;
-            this.textBox_NodePath.Size = new System.Drawing.Size(296, 21);
+            this.textBox_NodePath.Size = new System.Drawing.Size(299, 21);
             this.textBox_NodePath.TabIndex = 15;
             this.textBox_NodePath.Text = "/";
             // 
@@ -224,6 +227,7 @@
             this.menuUpdate.Name = "menuUpdate";
             this.menuUpdate.Size = new System.Drawing.Size(36, 22);
             this.menuUpdate.Text = "更新";
+            this.menuUpdate.Click += new System.EventHandler(this.menuUpdate_Click);
             // 
             // menuSave
             // 
@@ -233,6 +237,7 @@
             this.menuSave.Name = "menuSave";
             this.menuSave.Size = new System.Drawing.Size(36, 22);
             this.menuSave.Text = "保存";
+            this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
             // Main
             // 
@@ -240,6 +245,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 358);
             this.Controls.Add(this.splitContainer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";

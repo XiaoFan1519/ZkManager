@@ -239,6 +239,13 @@ namespace ZkManager.Forms
                 return;
             }
             
+            // 这里只是为了展开选中的节点
+            if (!node.IsExpanded)
+            {
+                node.Nodes.Add(new TreeNode());
+                node.Expand();
+            }
+
             // 加入新节点
             TreeNode treeNode = new TreeNode();
             node.Nodes.Add(treeNode);
@@ -265,8 +272,15 @@ namespace ZkManager.Forms
                 return;
             }
 
+            string fullPath = (string)currentNode.Parent.Tag;
+            // 当在根节点下创建的情况
+            if (null == currentNode.Parent.Parent)
+            {
+                fullPath = "";
+            }
+
             // 拼接新路径
-            string path = (string)currentNode.Parent.Tag + "/" + newVal;
+            string path = fullPath + "/" + newVal;
             currentNode.Tag = path;
             currentNode.Text = newVal;
             try
@@ -282,22 +296,47 @@ namespace ZkManager.Forms
             
         }
 
-        private void nodeTree_BeforeExpand_1(object sender, TreeViewCancelEventArgs e)
+        // 删除节点，包括子节点
+        private void delNode(string path)
         {
-            TreeNode node = e.Node;
-
-            if (null == node)
+            List<string> childNodes = zkClient.getChildren(path);
+            foreach(string node in childNodes)
             {
-                return;
+                delNode(path + "/" + node);
             }
-
-            getChildNode(node, (string)node.Tag);
+            zkClient.delete(path);
         }
 
-        private void menuReconnect_Click_1(object sender, EventArgs e)
+        private void delMenu_Click(object sender, EventArgs e)
         {
-            this.zkClient.close();
-            this.DialogResult = DialogResult.Yes;
+            TreeNode node = nodeTree.SelectedNode;
+            string path = (string)node.Tag;
+            try
+            {
+                List<string> childNodes = zkClient.getChildren((string)node.Tag);
+                if (childNodes.Count > 0)
+                {
+                    if (DialogResult.No == MessageBox.Show("节点 " + path + " 存在子节点，是否继续删除？", "提示", MessageBoxButtons.YesNo))
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    if (DialogResult.No == MessageBox.Show("确定删除节点 " + path + "？", "提示", MessageBoxButtons.YesNo))
+                    {
+                        return;
+                    }
+                }
+                delNode(path);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("删除节点 " + path + "失败！");
+                log.Debug("Error Delete Node.", ex);
+            }
+
+            node.Parent.Nodes.Remove(node);
         }
     }
 }
