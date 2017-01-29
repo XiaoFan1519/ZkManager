@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using ZooKeeperNet;
 using static ZooKeeperNet.KeeperException;
 
 namespace ZkManager.Forms
@@ -229,7 +230,74 @@ namespace ZkManager.Forms
 
         private void addMenuI_Click(object sender, EventArgs e)
         {
+            TreeNode node = nodeTree.SelectedNode;
 
+            // 如果为空，则默认根节点
+            if (null == node)
+            {
+                node = nodeTree.Nodes[0];
+                return;
+            }
+            
+            // 加入新节点
+            TreeNode treeNode = new TreeNode();
+            node.Nodes.Add(treeNode);
+
+            // 开始编辑模式
+            nodeTree.LabelEdit = true;
+            treeNode.BeginEdit();
+        }
+
+        private void nodeTree_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            TreeNode currentNode = e.Node;
+
+            // 结束编辑模式
+            currentNode.EndEdit(false);
+            e.CancelEdit = true;
+
+            string newVal = e.Label;
+
+            // 如果是空，则删除新增的节点
+            if (null == newVal || "".Equals(newVal))
+            {
+                currentNode.Parent.Nodes.Remove(currentNode);
+                return;
+            }
+
+            // 拼接新路径
+            string path = (string)currentNode.Parent.Tag + "/" + newVal;
+            currentNode.Tag = path;
+            currentNode.Text = newVal;
+            try
+            {
+                zkClient.create(path, CreateMode.Persistent);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("创建节点 " + path +  "失败！");
+                log.Debug("Error Create Node.", ex);
+                currentNode.Parent.Nodes.Remove(currentNode);
+            }
+            
+        }
+
+        private void nodeTree_BeforeExpand_1(object sender, TreeViewCancelEventArgs e)
+        {
+            TreeNode node = e.Node;
+
+            if (null == node)
+            {
+                return;
+            }
+
+            getChildNode(node, (string)node.Tag);
+        }
+
+        private void menuReconnect_Click_1(object sender, EventArgs e)
+        {
+            this.zkClient.close();
+            this.DialogResult = DialogResult.Yes;
         }
     }
 }
