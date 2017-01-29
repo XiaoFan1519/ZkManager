@@ -34,6 +34,7 @@
             this.Button_Edit = new System.Windows.Forms.Button();
             this.Button_Delete = new System.Windows.Forms.Button();
             this.Button_Login = new System.Windows.Forms.Button();
+            this.version = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ListBox_IpList
@@ -98,12 +99,22 @@
             this.Button_Login.UseVisualStyleBackColor = true;
             this.Button_Login.Click += new System.EventHandler(this.Button_Login_Click);
             // 
+            // version
+            // 
+            this.version.AutoSize = true;
+            this.version.Location = new System.Drawing.Point(199, 217);
+            this.version.Name = "version";
+            this.version.Size = new System.Drawing.Size(41, 12);
+            this.version.TabIndex = 5;
+            this.version.Text = "v3.0.0";
+            // 
             // Login
             // 
             this.AcceptButton = this.Button_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(242, 238);
+            this.Controls.Add(this.version);
             this.Controls.Add(this.Button_Login);
             this.Controls.Add(this.Button_Delete);
             this.Controls.Add(this.Button_Edit);
@@ -116,6 +127,7 @@
             this.Text = "登陆";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Button Button_Edit;
         private System.Windows.Forms.Button Button_Delete;
         private System.Windows.Forms.Button Button_Login;
+        private System.Windows.Forms.Label version;
     }
 }
