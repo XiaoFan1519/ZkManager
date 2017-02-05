@@ -27,7 +27,7 @@ namespace ZkManager.Forms
 
         private void emailLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("email:xiaofanms@outlook.com");
+            System.Diagnostics.Process.Start("mailto:xiaofanms@outlook.com");
         }
     }
 }

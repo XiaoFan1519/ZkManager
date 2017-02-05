@@ -288,5 +288,10 @@ namespace ZkManager.Forms
 
             node.Parent.Nodes.Remove(node);
         }
+
+        private void menuAbout_Click(object sender, EventArgs e)
+        {
+            new About().ShowDialog();
+        }
     }
 }
