@@ -26,12 +26,17 @@ namespace ZkManager.Forms
         /// </summary>
         private string name;
 
-        public Main(ZkClient client, string name)
+        /// <summary>
+        /// 本次连接的ip信息
+        /// </summary>
+        private string ip;
+
+        public Main(ZkClient client, string name, string ip)
         {
             // 初始化
             this.zkClient = client;
             this.name = name;
-
+            this.ip = ip;
             InitializeComponent();
         }
 
@@ -106,6 +111,7 @@ namespace ZkManager.Forms
 
         private void Main_Load(object sender, EventArgs e)
         {
+            this.Text = name + " - " + ip;
             getChildNode(nodeTree.Nodes[0], "/");
         }
 
