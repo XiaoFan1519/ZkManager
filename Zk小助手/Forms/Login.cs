@@ -110,7 +110,7 @@ namespace ZkManager
                 return;
             }
 
-            Main frm_Main = new Main(client, name);
+            Main frm_Main = new Main(client, name, value);
             // 隐藏登陆窗体
             this.Hide();
 
