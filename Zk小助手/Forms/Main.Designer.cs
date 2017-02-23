@@ -85,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nodeTree.ContextMenuStrip = this.contextMenuStrip1;
             this.nodeTree.Location = new System.Drawing.Point(4, 31);
-            this.nodeTree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nodeTree.Margin = new System.Windows.Forms.Padding(4);
             this.nodeTree.Name = "nodeTree";
             treeNode1.Name = "节点0";
             treeNode1.Tag = "/";
@@ -105,26 +105,26 @@
             this.addMenuI,
             this.delMenu});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 82);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 76);
             // 
             // refreshMenu
             // 
             this.refreshMenu.Name = "refreshMenu";
-            this.refreshMenu.Size = new System.Drawing.Size(114, 26);
+            this.refreshMenu.Size = new System.Drawing.Size(108, 24);
             this.refreshMenu.Text = "刷新";
             this.refreshMenu.Click += new System.EventHandler(this.memuRefresh_Click);
             // 
             // addMenuI
             // 
             this.addMenuI.Name = "addMenuI";
-            this.addMenuI.Size = new System.Drawing.Size(114, 26);
+            this.addMenuI.Size = new System.Drawing.Size(108, 24);
             this.addMenuI.Text = "新增";
             this.addMenuI.Click += new System.EventHandler(this.addMenuI_Click);
             // 
             // delMenu
             // 
             this.delMenu.Name = "delMenu";
-            this.delMenu.Size = new System.Drawing.Size(114, 26);
+            this.delMenu.Size = new System.Drawing.Size(108, 24);
             this.delMenu.Text = "删除";
             this.delMenu.Click += new System.EventHandler(this.delMenu_Click);
             // 
@@ -186,16 +186,16 @@
             // comboBox_Encoding
             // 
             this.comboBox_Encoding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_Encoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Encoding.FormattingEnabled = true;
             this.comboBox_Encoding.Items.AddRange(new object[] {
             "UTF-8",
             "GBK"});
             this.comboBox_Encoding.Location = new System.Drawing.Point(390, 31);
-            this.comboBox_Encoding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox_Encoding.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Encoding.Name = "comboBox_Encoding";
             this.comboBox_Encoding.Size = new System.Drawing.Size(71, 23);
             this.comboBox_Encoding.TabIndex = 16;
-            this.comboBox_Encoding.Text = "UTF-8";
             // 
             // textBox_NodePath
             // 
@@ -248,7 +248,7 @@
             this.ClientSize = new System.Drawing.Size(758, 448);
             this.Controls.Add(this.splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";

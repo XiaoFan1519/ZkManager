@@ -112,6 +112,7 @@ namespace ZkManager.Forms
         private void Main_Load(object sender, EventArgs e)
         {
             this.Text = name + " - " + ip;
+            comboBox_Encoding.SelectedIndex = 0;
             getChildNode(nodeTree.Nodes[0], "/");
         }
 
