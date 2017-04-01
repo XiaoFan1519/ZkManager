@@ -38,8 +38,13 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    <Reference Include="log4net_1.2.10">
+      <HintPath>DLL\log4net_1.2.10.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net_2.0.8.0">
+      <HintPath>DLL\log4net_2.0.8.0.dll</HintPath>
+      <Aliases>TestDLL</Aliases>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
