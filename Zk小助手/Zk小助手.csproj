@@ -38,13 +38,8 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net_1.2.10">
-      <HintPath>DLL\log4net_1.2.10.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="log4net_2.0.8.0">
-      <HintPath>DLL\log4net_2.0.8.0.dll</HintPath>
-      <Aliases>TestDLL</Aliases>
+    <Reference Include="log4net">
+      <HintPath>DLL\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -125,7 +120,6 @@
     <None Include="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
