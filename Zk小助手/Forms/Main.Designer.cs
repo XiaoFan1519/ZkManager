@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("/");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.nodeTree = new System.Windows.Forms.TreeView();
@@ -87,11 +87,11 @@
             this.nodeTree.Location = new System.Drawing.Point(4, 31);
             this.nodeTree.Margin = new System.Windows.Forms.Padding(4);
             this.nodeTree.Name = "nodeTree";
-            treeNode1.Name = "节点0";
-            treeNode1.Tag = "/";
-            treeNode1.Text = "/";
+            treeNode2.Name = "节点0";
+            treeNode2.Tag = "/";
+            treeNode2.Text = "/";
             this.nodeTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.nodeTree.Size = new System.Drawing.Size(281, 412);
             this.nodeTree.TabIndex = 16;
             this.nodeTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.nodeTree_BeforeExpand);
@@ -243,8 +243,8 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(758, 448);
             this.Controls.Add(this.splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

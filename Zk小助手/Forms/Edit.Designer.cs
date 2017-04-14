@@ -40,45 +40,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(75, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "连接名称:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 32);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(12, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.Size = new System.Drawing.Size(75, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "连接地址:";
             // 
             // textBox_Name
             // 
-            this.textBox_Name.Location = new System.Drawing.Point(70, 5);
-            this.textBox_Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Name.Location = new System.Drawing.Point(93, 6);
+            this.textBox_Name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(127, 21);
+            this.textBox_Name.Size = new System.Drawing.Size(168, 25);
             this.textBox_Name.TabIndex = 2;
             // 
             // textBox_Ip
             // 
-            this.textBox_Ip.Location = new System.Drawing.Point(70, 30);
-            this.textBox_Ip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Ip.Location = new System.Drawing.Point(93, 38);
+            this.textBox_Ip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Ip.Name = "textBox_Ip";
-            this.textBox_Ip.Size = new System.Drawing.Size(127, 21);
+            this.textBox_Ip.Size = new System.Drawing.Size(168, 25);
             this.textBox_Ip.TabIndex = 3;
             // 
             // button_OK
             // 
-            this.button_OK.Location = new System.Drawing.Point(70, 54);
-            this.button_OK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_OK.Location = new System.Drawing.Point(93, 68);
+            this.button_OK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_OK.Name = "button_OK";
-            this.button_OK.Size = new System.Drawing.Size(51, 21);
+            this.button_OK.Size = new System.Drawing.Size(68, 26);
             this.button_OK.TabIndex = 4;
             this.button_OK.Text = "确定";
             this.button_OK.UseVisualStyleBackColor = true;
@@ -87,10 +85,10 @@
             // button_Cancle
             // 
             this.button_Cancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Cancle.Location = new System.Drawing.Point(145, 54);
-            this.button_Cancle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Cancle.Location = new System.Drawing.Point(193, 68);
+            this.button_Cancle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Cancle.Name = "button_Cancle";
-            this.button_Cancle.Size = new System.Drawing.Size(51, 21);
+            this.button_Cancle.Size = new System.Drawing.Size(68, 26);
             this.button_Cancle.TabIndex = 5;
             this.button_Cancle.Text = "取消";
             this.button_Cancle.UseVisualStyleBackColor = true;
@@ -99,10 +97,10 @@
             // Edit
             // 
             this.AcceptButton = this.button_OK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.button_Cancle;
-            this.ClientSize = new System.Drawing.Size(205, 82);
+            this.ClientSize = new System.Drawing.Size(273, 102);
             this.Controls.Add(this.button_Cancle);
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.textBox_Ip);
@@ -111,7 +109,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Edit";
